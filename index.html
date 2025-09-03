@@ -5,95 +5,138 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Anastasia Sergeeva – BI / BA Portfolio</title>
 <meta name="description" content="Portfolio of Anastasia Sergeeva – BI Developer / Business Analyst. Power BI, SQL, semantic modeling, KPI governance, BPMN & BRD templates." />
+<meta name="theme-color" content="#0f172a" />
+
 <style>
+/* ==== Tokens ==== */
 :root{
   --bg:#0f172a; --panel:#0b1220; --text:#e5e7eb; --muted:#94a3b8;
   --chip:#111827; --brand:#38bdf8; --brand-2:#a78bfa; --line:#1e293b;
-  --shadow: 0 12px 30px rgba(0,0,0,.35); --radius:18px; --radius-sm:12px;
+  --shadow: 0 12px 30px rgba(0,0,0,.35);
+  --radius:18px; --radius-sm:12px;
+
+  /* unified spacing */
+  --container:1100px;
+  --pad-x:24px;               /* left/right padding (same everywhere) */
+  --v-gap:40px;               /* vertical gap between sections */
+  --header-h:68px;
+
+  /* typography scale */
+  --name-size:1.6rem;         /* bigger name */
+  --hero-title-max:1.4rem;    /* dashboard title smaller than name */
 }
 @media (prefers-color-scheme: light){
-  :root{ --bg:#f8fafc; --panel:#ffffff; --text:#0f172a; --muted:#475569; --chip:#f1f5f9; --line:#e2e8f0; --shadow:0 12px 30px rgba(2,6,23,.08); }
+  :root{
+    --bg:#f8fafc; --panel:#ffffff; --text:#0f172a; --muted:#475569;
+    --chip:#f1f5f9; --line:#e2e8f0; --shadow:0 12px 30px rgba(2,6,23,.08);
+  }
 }
+
+/* ==== Base ==== */
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial}
+html,body{margin:0;background:var(--bg);color:var(--text);
+  font:16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial}
 a{color:var(--brand);text-decoration:none} a:hover{opacity:.9}
-.container{max-width:1100px;margin:0 auto;padding:28px}
+a:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:8px}
+.container{max-width:var(--container);margin:0 auto;padding:28px var(--pad-x)}
 
-/* Header */
-header{position:sticky;top:0;backdrop-filter:saturate(160%) blur(8px);background:color-mix(in srgb, var(--bg) 78%, transparent);z-index:10;border-bottom:1px solid color-mix(in srgb, var(--muted) 24%, transparent)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:18px}
+/* Skip link */
+.skip-link{position:absolute;left:-9999px;top:auto;height:1px;width:1px;overflow:hidden}
+.skip-link:focus{position:fixed;left:20px;top:12px;height:auto;width:auto;padding:8px 12px;
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;z-index:100}
+
+/* ==== Header ==== */
+header{
+  position:sticky;top:0;z-index:10;
+  backdrop-filter:saturate(160%) blur(8px);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  border-bottom:1px solid color-mix(in srgb, var(--muted) 24%, transparent);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:var(--header-h)}
 .nav .left{display:flex;align-items:center;gap:14px}
-.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:var(--shadow)}
-.logo span{font-weight:800;color:white}
-.flag{font-size:.9rem;color:var(--muted)}
+.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:var(--shadow)}
+.logo span{font-weight:800;color:#fff}
+.name{font-weight:800;font-size:var(--name-size);line-height:1.1}
+.flag{font-size:.95rem;color:var(--muted)}
 nav.right a{padding:10px 12px;border-radius:10px}
-nav.right a:focus-visible{outline:2px solid var(--brand)}
 
-/* Hero */
-.hero{display:grid;gap:10px;padding:36px 0 8px 0}
-.hero h1{font-size:clamp(2rem, 3.5vw + 1rem, 3.2rem);line-height:1.15;margin:0}
-.hero p{margin:0;color:var(--muted);max-width:70ch}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.chip{background:var(--chip);padding:6px 10px;border-radius:999px;font-size:.9rem;color:var(--muted);border:1px solid color-mix(in srgb, var(--muted) 18%, transparent)}
-
-/* Sections */
-.section{margin-top:26px}
+/* ==== Sections / unified margins ==== */
+section{scroll-margin-top:calc(var(--header-h) + 14px)}
+.section{margin-top:var(--v-gap)}
 .section-title{display:flex;align-items:end;justify-content:space-between;margin:6px 0 12px 0}
-.section-title h2{margin:0;font-size:1.35rem}
+.section-title h2{margin:0;font-size:1.25rem}
 .section-title p{margin:0;color:var(--muted);font-size:.95rem}
 
-/* Cards & grid */
+/* ==== Hero ==== */
+.hero{display:grid;gap:10px;padding:32px 0 8px 0}
+.hero h1{ /* smaller than name */
+  font-size:clamp(1.15rem, 1.2rem + 0.6vw, var(--hero-title-max));
+  line-height:1.2;margin:0;
+}
+.hero p{margin:0;color:var(--muted);max-width:70ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{background:var(--chip);padding:6px 10px;border-radius:999px;font-size:.9rem;color:var(--muted);
+  border:1px solid color-mix(in srgb, var(--muted) 18%, transparent)}
+
+/* ==== Cards & grid ==== */
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-.card{grid-column:span 12;background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;border:1px solid var(--line)}
+.card{grid-column:span 12;background:var(--panel);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:20px;border:1px solid var(--line)}
 @media(min-width:860px){ .m6{grid-column:span 6} .m4{grid-column:span 4} }
 .eyebrow{font-size:.85rem;color:var(--muted);letter-spacing:.02em;margin-bottom:6px}
 .meta{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
-.meta span{background:var(--chip);padding:4px 9px;border-radius:999px;color:var(--muted);font-size:.8rem;border:1px solid color-mix(in srgb, var(--muted) 18%, transparent)}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:var(--brand);color:#05111a;font-weight:700;border:0}
+.meta span{background:var(--chip);padding:4px 9px;border-radius:999px;color:var(--muted);
+  font-size:.8rem;border:1px solid color-mix(in srgb, var(--muted) 18%, transparent)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;
+  background:var(--brand);color:#05111a;font-weight:700;border:0}
 .btn.secondary{background:var(--chip);color:var(--text);border:1px solid var(--line)}
 
-/* Gallery */
+/* ==== Gallery ==== */
 .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-.tile{grid-column:span 12;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden}
+.tile{grid-column:span 12;background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius-sm);overflow:hidden}
 @media(min-width:820px){ .tile{grid-column:span 6} }
 .tile img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
 .tile .cap{padding:10px 12px;border-top:1px solid var(--line);font-size:.95rem;color:var(--muted)}
+.tile img.table-img{aspect-ratio:auto;object-fit:contain;max-height:520px;background:var(--panel)}
 
-/* Ensure table-like screenshots are fully visible (no cropping) */
-.tile img.table-img{
-  aspect-ratio:auto;
-  object-fit:contain;
-  max-height:520px;
-  background:var(--panel);
+/* ==== Live (stack title + subtitle, equal paddings) ==== */
+#live .section-title{
+  flex-direction:column;align-items:flex-start;gap:6px; /* subtitle under title */
 }
-
-/* Live report preview (smaller, centered) */
 .card.narrow{max-width:720px;margin:0 auto}
 .card.narrow .preview{max-width:720px;margin:0 auto}
 .card.narrow .preview img{aspect-ratio:16/10;max-height:360px}
 
-/* Preview overlay styles */
+/* Preview overlay */
 .preview{position:relative;display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .preview img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform .25s ease}
 .preview:hover img{transform:scale(1.01)}
 .overlay-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:var(--shadow)}
+@media (prefers-reduced-motion: reduce){
+  .preview img{transition:none}
+  .preview:hover img{transform:none}
+}
 
-/* Footer */
-footer{margin:40px 0 20px 0;color:var(--muted);font-size:.9rem}
+/* ==== Footer ==== */
+footer{margin:var(--v-gap) 0 20px 0;color:var(--muted);font-size:.9rem}
 hr.sep{border:0;border-top:1px solid var(--line);margin:22px 0}
 </style>
 </head>
 <body>
+<a href="#project" class="skip-link">Skip to main content</a>
+
 <header>
-  <div class="container nav">
+  <div class="container nav" role="navigation" aria-label="Primary">
     <div class="left">
       <div class="logo" aria-hidden="true"><span>AS</span></div>
       <div>
-        <div style="font-weight:800">Anastasia Sergeeva</div>
+        <div class="name">Anastasia Sergeeva</div>
         <div class="flag">BI Developer • Business Analyst • DE/EN</div>
       </div>
     </div>
-    <nav class="right" aria-label="Primary">
+    <nav class="right" aria-label="Sections">
       <a href="#project">Project</a>
       <a href="#shots">Screenshots</a>
       <a href="#live">Live</a>
@@ -101,11 +144,15 @@ hr.sep{border:0;border-top:1px solid var(--line);margin:22px 0}
   </div>
 </header>
 
-<main class="container">
+<main class="container" id="main">
   <!-- HERO -->
-  <section class="hero" id="project">
-    <h1>Retail KPI Dashboard & Semantic Model</h1>
-    <p>One-project spotlight: a compact BI case study demonstrating requirements capture, dimensional modeling (star), DAX KPI design, and stakeholder-ready visuals for a synthetic retailer (<em>RetailCo</em>).</p>
+  <section class="hero" id="project" aria-labelledby="hero-title">
+    <h1 id="hero-title">Retail KPI Dashboard &amp; Semantic Model</h1>
+    <p>
+      One-project spotlight: a compact BI case study demonstrating requirements capture,
+      dimensional modeling (star), DAX KPI design, and stakeholder-ready visuals for a synthetic
+      retailer (<em>RetailCo</em>).
+    </p>
     <div class="chips" aria-label="Skills">
       <span class="chip">Power BI</span><span class="chip">SQL</span><span class="chip">Star Schema</span>
       <span class="chip">DAX</span><span class="chip">RLS</span><span class="chip">Bookmarks</span>
@@ -113,26 +160,26 @@ hr.sep{border:0;border-top:1px solid var(--line);margin:22px 0}
   </section>
 
   <!-- PROJECT SUMMARY -->
-  <section class="section">
-    <div class="card">
+  <section class="section" aria-labelledby="summary-title">
+    <article class="card">
       <div class="eyebrow">Case study</div>
-      <h2 style="margin:0 0 6px 0;">Project in brief</h2>
+      <h2 id="summary-title" style="margin:0 0 6px 0;">Project in brief</h2>
       <p style="margin:6px 0 12px 0;max-width:75ch">
         <strong>Goal.</strong> Give executives and merch teams a single source of truth for sales, margin, and customer trends.<br/>
         <strong>My role.</strong> Requirements → model &amp; ETL stubs → DAX KPIs → report UX → documentation.<br/>
         <strong>Highlights.</strong> Conformed dimensions, KPI semantic layer, drill-through paths, RLS for regions, and a tidy data dictionary for hand-over.
       </p>
-      <div class="meta">
+      <div class="meta" aria-label="Project meta">
         <span>Dataset: synthetic</span><span>Pages: Exec, Customer, Product</span><span>RLS: Region</span>
         <span>Hand-over: Model + Docs</span>
       </div>
-    </div>
+    </article>
   </section>
 
   <!-- SCREENSHOTS -->
-  <section id="shots" class="section">
+  <section id="shots" class="section" aria-labelledby="shots-title">
     <div class="section-title">
-      <h2>Screenshots</h2>
+      <h2 id="shots-title">Screenshots</h2>
       <p>Small, consistent thumbnails with captions.</p>
     </div>
     <div class="gallery" role="list">
@@ -153,24 +200,27 @@ hr.sep{border:0;border-top:1px solid var(--line);margin:22px 0}
         <figcaption class="cap">Model – conformed dims, SCD-ready design.</figcaption>
       </figure>
       <figure class="tile" role="listitem">
-        <img class="table-img" src="Data_Dictionary.png" alt="Data dictionary definitions" loading="lazy" />
+        <img class="table-img" src="Data_Dictionary.png" alt="Data dictionary with KPI and column definitions" loading="lazy" />
         <figcaption class="cap">Data dictionary – KPIs &amp; columns defined.</figcaption>
       </figure>
       <figure class="tile" role="listitem">
-        <img class="table-img" src="Model_Information.png" alt="Model information and metadata" loading="lazy" />
+        <img class="table-img" src="Model_Information.png" alt="Model information and metadata snapshot" loading="lazy" />
         <figcaption class="cap">Model info – lineage &amp; metadata snapshot.</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- LIVE (smaller) -->
-  <section id="live" class="section">
+  <!-- LIVE -->
+  <section id="live" class="section" aria-labelledby="live-title">
     <div class="section-title">
-      <h2>Live report</h2>
+      <h2 id="live-title">Live report</h2>
       <p>Opens in a new tab. Requires Power BI sign-in.</p>
     </div>
+
     <article class="card narrow">
-      <a class="preview" href="https://app.powerbi.com/reportEmbed?reportId=fe45a541-7352-45ed-bc42-fc05432315d2&autoAuth=true&ctid=198f3525-42fb-4b34-b9e1-9f2e4d728619" target="_blank" rel="noopener">
+      <a class="preview"
+         href="https://app.powerbi.com/reportEmbed?reportId=fe45a541-7352-45ed-bc42-fc05432315d2&autoAuth=true&ctid=198f3525-42fb-4b34-b9e1-9f2e4d728619"
+         target="_blank" rel="noopener noreferrer" aria-label="Open live Power BI report in a new tab">
         <img src="Exec_Dashboard.png" alt="Retail KPI dashboard preview" loading="lazy" />
         <span class="overlay-btn btn">View live report</span>
       </a>
@@ -181,8 +231,9 @@ hr.sep{border:0;border-top:1px solid var(--line);margin:22px 0}
   </section>
 
   <hr class="sep" />
-  <footer>
-    © <span id="yr"></span> Anastasia Sergeeva • <a href="mailto:anastasia.sergeeva.019@gmail.com">Email</a> •
+  <footer role="contentinfo">
+    © <span id="yr"></span> Anastasia Sergeeva •
+    <a href="mailto:anastasia.sergeeva.019@gmail.com">Email</a> •
     <a href="https://www.linkedin.com/in/anastasia-sergeeva-384787132/" target="_blank" rel="noopener">LinkedIn</a>
   </footer>
 </main>
