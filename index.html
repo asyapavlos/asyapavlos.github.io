@@ -141,35 +141,29 @@ hr.sep{border:0;border-top:1px solid var(--line);margin:22px 0}
     </div>
   </section>
 
-  <!-- LIVE / EMBED -->
   <section id="live" class="section">
-    <div class="section-title">
-      <h2>Live report</h2>
-      <p>Requires Power BI sign-in. Safer as an external link.</p>
-    </div>
+  <div class="section-title">
+    <h2>Live report</h2>
+    <p>Opens in a new tab. Requires Power BI sign-in.</p>
+  </div>
 
-    <div class="grid">
-      <article class="card m6">
-        <div class="eyebrow">Open in new tab</div>
-        <h3 style="margin:0 0 8px 0;">Power BI (secure link)</h3>
-        <p style="margin:0 0 14px 0;">Best for recruiters—no blank iframe if they aren’t authenticated.</p>
-        <a class="btn" href="https://app.powerbi.com/reportEmbed?reportId=fe45a541-7352-45ed-bc42-fc05432315d2&autoAuth=true&ctid=198f3525-42fb-4b34-b9e1-9f2e4d728619" target="_blank" rel="noopener">Open report</a>
-        <button class="btn secondary" style="margin-left:10px" onclick="toggleEmbed()">Or, show inline</button>
-      </article>
+  <article class="card">
+    <a class="preview" href="https://app.powerbi.com/reportEmbed?reportId=fe45a541-7352-45ed-bc42-fc05432315d2&autoAuth=true&ctid=198f3525-42fb-4b34-b9e1-9f2e4d728619" target="_blank" rel="noopener">
+      <img src="/Exec_Dashboard.png" alt="Retail KPI dashboard preview" loading="lazy" />
+      <span class="overlay-btn btn">View live report</span>
+    </a>
+    <p style="margin:10px 0 0 0;color:var(--muted);font-size:.95rem">
+      If you don’t have access, <a href="mailto:anastasia.sergeeva.019@gmail.com">request a demo link</a>.
+    </p>
+  </article>
+</section>
 
-      <article class="card m6" id="embedBox" hidden>
-        <div class="eyebrow">Inline preview</div>
-        <h3 style="margin:0 0 8px 0;">Embedded (may require login)</h3>
-        <div class="media">
-          <div class="ratio"></div>
-          <iframe title="Performance_Dashboard_RetailCo"
-            src="https://app.powerbi.com/reportEmbed?reportId=fe45a541-7352-45ed-bc42-fc05432315d2&autoAuth=true&ctid=198f3525-42fb-4b34-b9e1-9f2e4d728619"
-            allowfullscreen></iframe>
-        </div>
-      </article>
-    </div>
-  </section>
+.preview{position:relative;display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.preview img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform .25s ease}
+.preview:hover img{transform:scale(1.01)}
+.overlay-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:var(--shadow)}
 
+  
   <hr class="sep" />
   <footer>
     © <span id="yr"></span> Anastasia Sergeeva • <a href="mailto:anastasia.sergeeva.019@gmail.com">Email</a> •
