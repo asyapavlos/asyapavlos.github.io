@@ -7,153 +7,183 @@
 <meta name="description" content="Portfolio of Anastasia Sergeeva – BI Developer / Business Analyst. Power BI, SQL, semantic modeling, KPI governance, BPMN & BRD templates." />
 <style>
 :root{
---bg:#0f172a; /* slate-900 */
---panel:#111827; /* gray-900 */
---text:#e5e7eb; /* gray-200 */
---muted:#94a3b8; /* slate-400 */
---brand:#38bdf8; /* sky-400 */
---brand-2:#a78bfa; /* violet-400 */
---ok:#34d399; /* emerald-400 */
---bad:#fb7185; /* rose-400 */
---chip:#1f2937; /* gray-800 */
---card:#0b1220; /* deep panel */
---shadow: 0 10px 25px rgba(0,0,0,.35);
---radius: 18px;
+  --bg:#0f172a; --panel:#0b1220; --text:#e5e7eb; --muted:#94a3b8;
+  --chip:#111827; --brand:#38bdf8; --brand-2:#a78bfa; --line:#1e293b;
+  --shadow: 0 12px 30px rgba(0,0,0,.35); --radius:18px; --radius-sm:12px;
 }
 @media (prefers-color-scheme: light){
-:root{
---bg:#f8fafc; --panel:#ffffff; --text:#0f172a; --muted:#475569; --chip:#f1f5f9; --card:#ffffff;
---shadow: 0 10px 25px rgba(2,6,23,.08);
-}
+  :root{ --bg:#f8fafc; --panel:#ffffff; --text:#0f172a; --muted:#475569; --chip:#f1f5f9; --line:#e2e8f0; --shadow:0 12px 30px rgba(2,6,23,.08); }
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial}
+html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial}
 a{color:var(--brand);text-decoration:none} a:hover{opacity:.9}
 .container{max-width:1100px;margin:0 auto;padding:28px}
-header{position:sticky;top:0;backdrop-filter:saturate(160%) blur(8px);background:color-mix(in srgb, var(--bg) 75%, transparent);z-index:10;border-bottom:1px solid color-mix(in srgb, var(--muted) 20%, transparent)}
+header{position:sticky;top:0;backdrop-filter:saturate(160%) blur(8px);background:color-mix(in srgb, var(--bg) 78%, transparent);z-index:10;border-bottom:1px solid color-mix(in srgb, var(--muted) 24%, transparent)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:18px}
 .nav .left{display:flex;align-items:center;gap:14px}
-.logo{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:var(--shadow)}
 .logo span{font-weight:800;color:white}
-.pill{padding:5px 10px;border-radius:999px;background:var(--chip);color:var(--muted);font-size:.85rem}
-.hero{display:grid;gap:18px;padding:48px 0}
-.hero h1{font-size:clamp(1.8rem, 2.5vw + 1rem, 3rem);line-height:1.15;margin:0}
-.hero p{margin:0;color:var(--muted)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.chips .chip{background:var(--chip);padding:6px 10px;border-radius:999px;font-size:.9rem;color:var(--muted)}
-
-
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-.card{grid-column:span 12;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;border:1px solid color-mix(in srgb, var(--muted) 18%, transparent)}
-@media(min-width:800px){.card.m6{grid-column:span 6}}
-
-
-.card h3{margin:0 0 6px 0;font-size:1.25rem}
-.eyebrow{font-size:.85rem;color:var(--muted);letter-spacing:.02em}
-.meta{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
-.meta span{background:var(--chip);padding:4px 9px;border-radius:999px;color:var(--muted);font-size:.8rem}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:var(--brand);color:#05111a;font-weight:600}
-.btn.secondary{background:var(--chip);color:var(--text)}
-
-
-.section-title{display:flex;align-items:end;justify-content:space-between;margin:24px 0 8px 0}
-.section-title h2{margin:0;font-size:1.4rem}
+.flag{font-size:.9rem;color:var(--muted)}
+nav.right a{padding:10px 12px;border-radius:10px}
+nav.right a:focus-visible{outline:2px solid var(--brand)}
+/* Hero */
+.hero{display:grid;gap:10px;padding:36px 0 8px 0}
+.hero h1{font-size:clamp(2rem, 3.5vw + 1rem, 3.2rem);line-height:1.15;margin:0}
+.hero p{margin:0;color:var(--muted);max-width:70ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{background:var(--chip);padding:6px 10px;border-radius:999px;font-size:.9rem;color:var(--muted);border:1px solid color-mix(in srgb, var(--muted) 18%, transparent)}
+/* Sections */
+.section{margin-top:26px}
+.section-title{display:flex;align-items:end;justify-content:space-between;margin:6px 0 12px 0}
+.section-title h2{margin:0;font-size:1.35rem}
 .section-title p{margin:0;color:var(--muted);font-size:.95rem}
-
-
-.two-col{display:grid;gap:18px}
-@media(min-width:900px){.two-col{grid-template-columns:1.2fr .8fr}}
-
-
-footer{margin:48px 0 20px 0;color:var(--muted);font-size:.9rem}
-code.kbd{background:var(--chip);padding:2px 6px;border-radius:6px}
-.flag{font-size:.85rem;color:var(--muted)}
+/* Cards & grid */
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.card{grid-column:span 12;background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;border:1px solid var(--line)}
+@media(min-width:860px){ .m6{grid-column:span 6} .m4{grid-column:span 4} }
+.eyebrow{font-size:.85rem;color:var(--muted);letter-spacing:.02em;margin-bottom:6px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.meta span{background:var(--chip);padding:4px 9px;border-radius:999px;color:var(--muted);font-size:.8rem;border:1px solid color-mix(in srgb, var(--muted) 18%, transparent)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:var(--brand);color:#05111a;font-weight:700;border:0}
+.btn.secondary{background:var(--chip);color:var(--text);border:1px solid var(--line)}
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.tile{grid-column:span 12;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden}
+@media(min-width:820px){ .tile{grid-column:span 6} }
+.tile img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
+.tile .cap{padding:10px 12px;border-top:1px solid var(--line);font-size:.95rem;color:var(--muted)}
+/* Media box (embed/link) */
+.media{position:relative;border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--line)}
+.media iframe{position:absolute;inset:0;border:0;width:100%;height:100%}
+.media .ratio{padding-top:56.25%}
+/* Footer */
+footer{margin:40px 0 20px 0;color:var(--muted);font-size:.9rem}
+hr.sep{border:0;border-top:1px solid var(--line);margin:22px 0}
 </style>
 </head>
 <body>
 <header>
-<div class="container nav">
-<div class="left">
-<div class="logo" aria-hidden="true"><span>AS</span></div>
-<div>
-<div style="font-weight:700">Anastasia Sergeeva</div>
-<div class="flag">BI Developer • Business Analyst • DE/EN</div>
-</div>
-</div>
-<nav class="right" aria-label="Primary">
-<a href="#projects">Projects</a>
+  <div class="container nav">
+    <div class="left">
+      <div class="logo" aria-hidden="true"><span>AS</span></div>
+      <div>
+        <div style="font-weight:800">Anastasia Sergeeva</div>
+        <div class="flag">BI Developer • Business Analyst • DE/EN</div>
+      </div>
+    </div>
+    <nav class="right" aria-label="Primary">
+      <a href="#project">Project</a>
+      <a href="#shots">Screenshots</a>
+      <a href="#live">Live</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Retail KPI Dashboard & Semantic Model</h1>
+    <p>One-project spotlight: a compact BI case study demonstrating requirements capture, dimensional modeling (star), DAX KPI design, and stakeholder-ready visuals for a synthetic retailer (<em>RetailCo</em>).</p>
+    <div class="chips" aria-label="Skills">
+      <span class="chip">Power BI</span><span class="chip">SQL</span><span class="chip">Star Schema</span>
+      <span class="chip">DAX</span><span class="chip">RLS</span><span class="chip">Bookmarks</span>
+    </div>
+  </section>
+
+  <!-- PROJECT SUMMARY -->
+  <section id="project" class="section">
+    <div class="card">
+      <div class="eyebrow">Case study</div>
+      <h2 style="margin:0 0 6px 0;">Project in brief</h2>
+      <p style="margin:6px 0 12px 0;max-width:75ch">
+        <strong>Goal.</strong> Give executives and merch teams a single source of truth for sales, margin, and customer trends.<br/>
+        <strong>My role.</strong> Requirements → model & ETL stubs → DAX KPIs → report UX → documentation.<br/>
+        <strong>Highlights.</strong> Conformed dimensions, KPI semantic layer, drill-through paths, RLS for regions, and a tidy data dictionary for hand-over.
+      </p>
+      <div class="meta">
+        <span>Dataset: synthetic</span><span>Pages: Exec, Customer, Product</span><span>RLS: Region</span>
+        <span>Hand-over: Model + Docs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section id="shots" class="section">
+    <div class="section-title">
+      <h2>Screenshots</h2>
+      <p>Small, consistent thumbnails with captions.</p>
+    </div>
+    <div class="gallery" role="list">
+      <figure class="tile" role="listitem">
+        <img src="/Exec_Dashboard.png" alt="Executive dashboard overview" loading="lazy" />
+        <figcaption class="cap">Executive overview – core KPIs, trends, alerts.</figcaption>
+      </figure>
+      <figure class="tile" role="listitem">
+        <img src="/Customer_Detail.png" alt="Customer detail dashboard" loading="lazy" />
+        <figcaption class="cap">Customer detail – segments, CLV proxy, cohorts.</figcaption>
+      </figure>
+      <figure class="tile" role="listitem">
+        <img src="/Product_View.png" alt="Product performance dashboard" loading="lazy" />
+        <figcaption class="cap">Product – mix, margin, top/bottom performers.</figcaption>
+      </figure>
+      <figure class="tile" role="listitem">
+        <img src="/Data_Model.png" alt="Power BI star schema model" loading="lazy" />
+        <figcaption class="cap">Model – conformed dims, SCD-ready design.</figcaption>
+      </figure>
+      <figure class="tile" role="listitem">
+        <img src="/Data_Dictionary.png" alt="Data dictionary definitions" loading="lazy" />
+        <figcaption class="cap">Data dictionary – KPIs & columns defined.</figcaption>
+      </figure>
+      <figure class="tile" role="listitem">
+        <img src="/Model_Information.png" alt="Model information and metadata" loading="lazy" />
+        <figcaption class="cap">Model info – lineage & metadata snapshot.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- LIVE / EMBED -->
+  <section id="live" class="section">
+    <div class="section-title">
+      <h2>Live report</h2>
+      <p>Requires Power BI sign-in. Safer as an external link.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card m6">
+        <div class="eyebrow">Open in new tab</div>
+        <h3 style="margin:0 0 8px 0;">Power BI (secure link)</h3>
+        <p style="margin:0 0 14px 0;">Best for recruiters—no blank iframe if they aren’t authenticated.</p>
+        <a class="btn" href="https://app.powerbi.com/reportEmbed?reportId=fe45a541-7352-45ed-bc42-fc05432315d2&autoAuth=true&ctid=198f3525-42fb-4b34-b9e1-9f2e4d728619" target="_blank" rel="noopener">Open report</a>
+        <button class="btn secondary" style="margin-left:10px" onclick="toggleEmbed()">Or, show inline</button>
+      </article>
+
+      <article class="card m6" id="embedBox" hidden>
+        <div class="eyebrow">Inline preview</div>
+        <h3 style="margin:0 0 8px 0;">Embedded (may require login)</h3>
+        <div class="media">
+          <div class="ratio"></div>
+          <iframe title="Performance_Dashboard_RetailCo"
+            src="https://app.powerbi.com/reportEmbed?reportId=fe45a541-7352-45ed-bc42-fc05432315d2&autoAuth=true&ctid=198f3525-42fb-4b34-b9e1-9f2e4d728619"
+            allowfullscreen></iframe>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <hr class="sep" />
+  <footer>
+    © <span id="yr"></span> Anastasia Sergeeva • <a href="mailto:anastasia.sergeeva.019@gmail.com">Email</a> •
+    <a href="https://www.linkedin.com/in/anastasia-sergeeva-384787132/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+</main>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  function toggleEmbed(){
+    const box = document.getElementById('embedBox');
+    box.hidden = !box.hidden;
+    box.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
 </html>
-
-
-<article class="card m6">
-  <div class="eyebrow">Retail • Power BI + SQL</div>
-  <h3>Retail KPI Dashboard & Semantic Model</h3>
-  <p>Interactive demo dashboard built with synthetic data (RetailCo).</p>
-
-<!-- Power BI embed starts -->
-<div style="position:relative;width:100%;padding-top:56.25%;border:1px solid rgba(148,163,184,.25);border-radius:12px;overflow:hidden">
-  <iframe title="Performance_Dashboard_RetailCo"
-          src="https://app.powerbi.com/reportEmbed?reportId=fe45a541-7352-45ed-bc42-fc05432315d2&autoAuth=true&ctid=198f3525-42fb-4b34-b9e1-9f2e4d728619"
-          style="position:absolute;inset:0;border:0;width:100%;height:100%"
-          allowfullscreen="true"></iframe>
-</div>
-<!-- Power BI embed ends -->
-
-  <div class="meta">
-    <span>Star Schema</span><span>DAX measures</span><span>Bookmarks</span><span>RLS</span>
-  </div>
-</article>
-  
-<!-- Screenshot Gallery -->
-<div class="grid" style="margin-top:20px">
-  <div class="card m6">
-    <h3>Executive Dashboard</h3>
-    <img src="/Exec_Dashboard.png"
-         alt="Executive Dashboard overview"
-         style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.2)" />
-  </div>
-
-  <div class="card m6">
-    <h3>Customer Detail View</h3>
-    <img src="/Customer_Detail.png"
-         alt="Customer detail dashboard"
-         style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.2)" />
-  </div>
-
-  <div class="card m6">
-    <h3>Product View</h3>
-    <img src="/Product_View.png"
-         alt="Product performance dashboard"
-         style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.2)" />
-  </div>
-
-  <div class="card m6">
-    <h3>Data Model</h3>
-    <img src="/Data_Model.png"
-         alt="Power BI star schema model"
-         style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.2)" />
-  </div>
-
-  <div class="card m6">
-    <h3>Data Dictionary</h3>
-    <img src="/Data_Dictionary.png"
-         alt="Data dictionary definitions"
-         style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.2)" />
-  </div>
-
-  <div class="card m6">
-    <h3>Model Information</h3>
-    <img src="/Model_Information.png"
-         alt="Model information and metadata"
-         style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.2)" />
-  </div>
-</div>
-
-<img src="Exec_Dashboard.png" alt="Executive Dashboard overview" />
-<img src="Customer_Detail.png" alt="Customer Detail dashboard" />
-<img src="Product_View.png" alt="Product performance dashboard" />
-<img src="Data_Model.png" alt="Data model" />
-<img src="Data_Dictionary.png" alt="Data dictionary" />
-<img src="Model_Information.png" alt="Model information" />
-  
