@@ -6,138 +6,77 @@
 <title>Anastasia Sergeeva – BI / BA Portfolio</title>
 <meta name="description" content="Portfolio of Anastasia Sergeeva – BI Developer / Business Analyst. Power BI, SQL, semantic modeling, KPI governance, BPMN & BRD templates." />
 <meta name="theme-color" content="#0f172a" />
-
 <style>
-/* ==== Tokens ==== */
 :root{
   --bg:#0f172a; --panel:#0b1220; --text:#e5e7eb; --muted:#94a3b8;
-  --chip:#111827; --brand:#38bdf8; --brand-2:#a78bfa; --line:#1e293b;
-  --line-soft: color-mix(in srgb, var(--muted) 22%, transparent);
-  --shadow: 0 6px 18px rgba(0,0,0,.22);
+  --chip:#111827; --brand:#38bdf8; --brand-2:#a78bfa;
+  --line:#1e293b; --line-soft: color-mix(in srgb, var(--muted) 22%, transparent);
   --radius:18px; --radius-sm:12px;
-
-  /* unified spacing */
-  --container:1100px;
-  --pad-x:24px;
-  --v-gap:64px;              /* more air between sections */
-  --header-h:68px;
-
-  /* typography scale */
-  --name-size:2rem;          /* bigger name */
-  --hero-title-max:1.55rem;  /* hero title smaller than name */
+  --container:1100px; --pad-x:24px; --v-gap:64px; --header-h:68px;
+  --name-size:2rem; --hero-title-max:1.55rem;
 }
 @media (prefers-color-scheme: light){
   :root{
     --bg:#f8fafc; --panel:#ffffff; --text:#0f172a; --muted:#475569;
-    --chip:#f1f5f9; --line:#e2e8f0; --line-soft:#e6eef7; --shadow:0 6px 18px rgba(2,6,23,.08);
+    --chip:#f1f5f9; --line:#e2e8f0; --line-soft:#e6eef7;
   }
 }
-
-/* ==== Base ==== */
 *{box-sizing:border-box}
-html,body{
-  margin:0;background:var(--bg);color:var(--text);
-  font:16px/1.65 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
-}
-a{color:var(--brand);text-decoration:none}
-a:hover{opacity:.92}
+html,body{margin:0;background:var(--bg);color:var(--text);
+  font:16px/1.65 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;}
+a{color:var(--brand);text-decoration:none} a:hover{opacity:.92}
 a:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:8px}
 .container{max-width:var(--container);margin:0 auto;padding:28px var(--pad-x)}
-
-/* Skip link */
-.skip-link{position:absolute;left:-9999px;top:auto;height:1px;width:1px;overflow:hidden}
-.skip-link:focus{position:fixed;left:20px;top:12px;height:auto;width:auto;padding:8px 12px;
-  background:var(--panel);border:1px solid var(--line);border-radius:10px;z-index:100}
-
-/* ==== Header ==== */
-header{
-  position:sticky;top:0;z-index:10;
-  backdrop-filter:saturate(160%) blur(8px);
-  background: color-mix(in srgb, var(--bg) 72%, transparent);
-  border-bottom:1px solid var(--line-soft);
-}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:var(--header-h)}
-.nav .left{display:flex;align-items:center;gap:14px}
-.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;
-  background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:var(--shadow)}
-.logo span{font-weight:800;color:#fff}
-.name{font-weight:800;font-size:var(--name-size);line-height:1.1;letter-spacing:-.01em}
-.flag{font-size:.95rem;color:var(--muted)}
-nav.right a{padding:10px 12px;border-radius:10px;color:var(--muted)}
-nav.right a:hover{color:var(--text)}
-
-/* ==== Sections / unified margins ==== */
-section{scroll-margin-top:calc(var(--header-h) + 14px)}
-.section{margin-top:var(--v-gap)}
+section{scroll-margin-top:calc(var(--header-h) + 14px)} .section{margin-top:var(--v-gap)}
 .section-title{display:flex;align-items:end;justify-content:space-between;margin:6px 0 18px 0}
 .section-title h2{margin:0;font-size:1.3rem;letter-spacing:.01em}
 .section-title p{margin:0;color:var(--muted);font-size:.95rem}
 
-/* ==== Hero ==== */
+/* Header */
+header{position:sticky;top:0;z-index:10;backdrop-filter:saturate(160%) blur(8px);
+  background: color-mix(in srgb, var(--bg) 72%, transparent); border-bottom:1px solid var(--line-soft);}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:var(--header-h)}
+.nav .left{display:flex;align-items:center;gap:14px}
+.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+.logo span{font-weight:800;color:#fff}
+.name{font-weight:800;font-size:var(--name-size);line-height:1.1;letter-spacing:-.01em}
+.flag{font-size:.95rem;color:var(--muted)}
+nav.right a{padding:10px 12px;border-radius:10px;color:var(--muted)} nav.right a:hover{color:var(--text)}
+
+/* Hero */
 .hero{display:grid;gap:12px;padding:36px 0 8px 0}
-.hero h1{
-  font-size:clamp(1.15rem, 1.2rem + 0.6vw, var(--hero-title-max));
-  line-height:1.2;margin:0;font-weight:700;letter-spacing:-.01em;
-}
+.hero h1{font-size:clamp(1.15rem, 1.2rem + 0.6vw, var(--hero-title-max));
+  line-height:1.2;margin:0;font-weight:700;letter-spacing:-.01em;}
 .hero p{margin:0;color:var(--muted);max-width:70ch}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .chip{background:var(--chip);padding:6px 10px;border-radius:999px;font-size:.9rem;color:var(--muted);
   border:1px solid var(--line-soft)}
 
-/* ==== Cards & grid ==== */
+/* Projects grid */
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-.card{
-  grid-column:span 12;background:var(--panel);border-radius:var(--radius);
-  padding:22px;border:1px solid var(--line-soft);box-shadow:none; /* calmer */
-}
-.card:hover{border-color:var(--line)}
-@media(min-width:860px){ .m6{grid-column:span 6} .m4{grid-column:span 4} }
-.eyebrow{font-size:.85rem;color:var(--muted);letter-spacing:.02em;margin-bottom:6px}
-.meta{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
-.meta span{background:var(--chip);padding:4px 9px;border-radius:999px;color:var(--muted);
-  font-size:.8rem;border:1px solid var(--line-soft)}
+.card{grid-column:span 12;background:var(--panel);border-radius:var(--radius);
+  padding:22px;border:1px solid var(--line-soft)}
+@media(min-width:860px){ .span-6{grid-column:span 6} }
+.thumb{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line-soft);margin-bottom:12px}
+.thumb img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;transition:transform .25s ease}
+.card:hover .thumb img{transform:scale(1.01)}
+.card h3{margin:6px 0 6px 0;font-size:1.05rem}
+.meta{color:var(--muted);font-size:.9rem;margin:0 0 10px 0}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;
   background:var(--brand);color:#05111a;font-weight:700;border:0}
-.btn.secondary{background:var(--chip);color:var(--text);border:1px solid var(--line)}
+.btn.ghost{background:var(--chip);color:var(--text);border:1px solid var(--line)}
 
-/* ==== Gallery ==== */
-.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-.tile{grid-column:span 12;background:var(--panel);border:1px solid var(--line-soft);
-  border-radius:var(--radius-sm);overflow:hidden;transition:transform .25s ease,border-color .25s ease}
-@media(min-width:820px){ .tile{grid-column:span 6} }
-.tile:hover{transform:translateY(-2px);border-color:var(--line)}
-.tile img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
-.tile .cap{padding:10px 12px;border-top:1px solid var(--line-soft);font-size:.95rem;color:var(--muted)}
-.tile img.table-img{aspect-ratio:auto;object-fit:contain;max-height:520px;background:var(--panel)}
-
-/* ==== Live (stack title + subtitle, equal paddings) ==== */
-#live .section-title{flex-direction:column;align-items:flex-start;gap:6px}
+/* About + Contact */
 .card.narrow{max-width:720px;margin:0 auto}
-.card.narrow .preview{max-width:720px;margin:0 auto}
-.card.narrow .preview img{aspect-ratio:16/10;max-height:360px}
+.list{margin:0;padding-left:20px} .list li{margin:.35em 0}
 
-/* Preview overlay */
-.preview{position:relative;display:block;border:1px solid var(--line-soft);border-radius:12px;overflow:hidden}
-.preview img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform .25s ease}
-.preview:hover img{transform:scale(1.01)}
-.overlay-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:var(--shadow)}
-@media (prefers-reduced-motion: reduce){
-  .preview img{transition:none}
-  .preview:hover img{transform:none}
-}
-
-/* Reveal on scroll */
-.reveal{opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease}
-.reveal.in{opacity:1;transform:none}
-
-/* ==== Footer ==== */
+/* Footer */
 footer{margin:var(--v-gap) 0 20px 0;color:var(--muted);font-size:.9rem}
 hr.sep{border:0;border-top:1px solid var(--line-soft);margin:28px 0}
 </style>
 </head>
 <body>
-<a href="#project" class="skip-link">Skip to main content</a>
-
 <header>
   <div class="container nav" role="navigation" aria-label="Primary">
     <div class="left">
@@ -148,157 +87,107 @@ hr.sep{border:0;border-top:1px solid var(--line-soft);margin:28px 0}
       </div>
     </div>
     <nav class="right" aria-label="Sections">
-      <a href="#project">Project</a>
-      <a href="#shots">Screenshots</a>
-      <a href="#live">Live</a>
+      <a href="#top">Home</a>
+      <a href="#projects">Projects</a>
     </nav>
   </div>
 </header>
+
+<main class="container" id="top">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title">Turning data into decisions.</h1>
+    <p>
+      I collect, process, analyse and present data — from supporting everyday business decisions to driving global change.
+      I design semantic models and Power BI dashboards people actually use.
+    </p>
+    <div class="chips" aria-label="Skills">
+      <span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">SQL</span>
+      <span class="chip">Star Schema</span><span class="chip">KPI Governance</span><span class="chip">Requirements</span>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section" aria-labelledby="projects-title">
+    <div class="section-title">
+      <h2 id="projects-title">Selected Projects</h2>
+      <p>Two-column grid on desktop; one column on mobile.</p>
+    </div>
+
+    <div class="grid">
+      <!-- Project 1: Retail KPI (links to detail page) -->
+      <article class="card span-6">
+        <a class="thumb" href="projects/retail-kpi.html" aria-label="Open Retail KPI project">
+          <img src="Exec_Dashboard.png" alt="Retail KPI dashboard preview" loading="lazy" />
+        </a>
+        <h3><a href="projects/retail-kpi.html">Retail KPI Dashboard &amp; Semantic Model</a></h3>
+        <p class="meta">Power BI · DAX · SQL · Star schema · RLS</p>
+        <p style="margin:0 0 12px 0">
+          Single source of truth for sales & margin. Conformed dimensions, KPI layer, drill-through, RLS.
+        </p>
+        <a class="btn" href="projects/retail-kpi.html">View case study</a>
+      </article>
+
+      <!-- Placeholder cards for future projects -->
+      <article class="card span-6">
+        <a class="thumb" href="#" aria-label="Upcoming project">
+          <img src="Customer_Detail.png" alt="Placeholder project preview" loading="lazy" />
+        </a>
+        <h3>Upcoming Project</h3>
+        <p class="meta">Power BI · Data Modeling</p>
+        <p style="margin:0 0 12px 0">Case study coming soon.</p>
+        <a class="btn ghost" href="#">Soon</a>
+      </article>
+    </div>
+  </section>
 
   <!-- ABOUT -->
   <section id="about" class="section" aria-labelledby="about-title">
     <div class="section-title">
       <h2 id="about-title">About Me</h2>
     </div>
-
-    <article class="card narrow reveal">
+    <article class="card narrow">
       <p style="margin:0 0 1em 0;font-size:1.05rem;color:var(--muted);">
-        <strong>Collect, process, analyse and present data</strong> — from supporting everyday business 
+        <strong>Collect, process, analyse and present data</strong> — from supporting everyday business
         decisions to driving global change.
       </p>
-
       <p>
-        I am a <strong>Business Intelligence Analyst</strong> with experience bridging business 
-        requirements and technical solutions. My background spans business processes, 
-        commercial departments, and IT projects. I design <strong>semantic data models</strong>, 
-        create <strong>interactive dashboards</strong>, and ensure <strong>KPI governance</strong> for 
-        better decision-making.
+        I am a <strong>Business Intelligence Analyst</strong> bridging business requirements and technical solutions.
+        I build <strong>semantic data models</strong>, <strong>interactive dashboards</strong>, and ensure
+        <strong>KPI governance</strong> for better decisions. Tools: <strong>Power BI, DAX, SQL</strong>.
+        Methods: <strong>Kimball star schema, SCD</strong>. I enjoy stakeholder workshops, BRDs, and turning
+        data into clear actions.
       </p>
-
-      <p>
-        Key skills include <strong>Power BI, DAX, SQL, data modeling</strong> (Kimball star schema, 
-        SCD), and <strong>requirements engineering</strong> (BRDs, BPMN). I have worked on 
-        reporting automation, assortment optimization, and customer insights projects, helping 
-        organizations reduce reporting cycles and adopt data-driven strategies.
-      </p>
-
-      <p>
-        Fluent in <strong>German (C1)</strong>, <strong>English (C2)</strong>, and Russian, I enjoy working 
-        in international environments, collaborating with stakeholders, and translating data into 
-        clear insights that bring measurable business impact.
-      </p>
+      <ul class="list">
+        <li>Dashboards adopted by executives and teams</li>
+        <li>Reduced reporting cycles by 10–30%</li>
+        <li>Languages: German (C1), English, Russian</li>
+      </ul>
     </article>
   </section>
 
-<main class="container" id="main">
-  <!-- HERO -->
-  <section class="hero reveal" id="project" aria-labelledby="hero-title">
-    <h1 id="hero-title">Retail KPI Dashboard &amp; Semantic Model</h1>
-    <p>
-      One-project spotlight: a compact BI case study demonstrating requirements capture,
-      dimensional modeling (star), DAX KPI design, and stakeholder-ready visuals for a synthetic
-      retailer (<em>RetailCo</em>).
-    </p>
-    <div class="chips" aria-label="Skills">
-      <span class="chip">Power BI</span><span class="chip">SQL</span><span class="chip">Star Schema</span>
-      <span class="chip">DAX</span><span class="chip">RLS</span><span class="chip">Bookmarks</span>
-    </div>
-  </section>
-
-  <!-- PROJECT SUMMARY -->
-  <section class="section reveal" aria-labelledby="summary-title">
-    <article class="card">
-      <div class="eyebrow">Case study</div>
-      <h2 id="summary-title" style="margin:0 0 6px 0;">Project in brief</h2>
-      <p style="margin:6px 0 12px 0;max-width:75ch">
-        <strong>Goal.</strong> Give executives and merch teams a single source of truth for sales, margin, and customer trends.<br/>
-        <strong>My role.</strong> Requirements → model &amp; ETL stubs → DAX KPIs → report UX → documentation.<br/>
-        <strong>Highlights.</strong> Conformed dimensions, KPI semantic layer, drill-through paths, RLS for regions, and a tidy data dictionary for hand-over.
-      </p>
-      <div class="meta" aria-label="Project meta">
-        <span>Dataset: synthetic</span><span>Pages: Exec, Customer, Product</span><span>RLS: Region</span>
-        <span>Hand-over: Model &amp; Docs</span>
-      </div>
-    </article>
-  </section>
-
-  <!-- SCREENSHOTS -->
-  <section id="shots" class="section" aria-labelledby="shots-title">
+  <!-- CONTACT -->
+  <section id="contact" class="section" aria-labelledby="contact-title">
     <div class="section-title">
-      <h2 id="shots-title">Screenshots</h2>
+      <h2 id="contact-title">Contact</h2>
+      <p>Prefer email or LinkedIn.</p>
     </div>
-    <div class="gallery" role="list">
-      <figure class="tile reveal" role="listitem">
-        <img src="Exec_Dashboard.png" alt="Executive dashboard overview" loading="lazy" />
-        <figcaption class="cap">Executive overview – core KPIs, trends, alerts.</figcaption>
-      </figure>
-      <figure class="tile reveal" role="listitem">
-        <img src="Customer_Detail.png" alt="Customer detail dashboard" loading="lazy" />
-        <figcaption class="cap">Customer detail – segments, CLV proxy, cohorts.</figcaption>
-      </figure>
-      <figure class="tile reveal" role="listitem">
-        <img src="Product_View.png" alt="Product performance dashboard" loading="lazy" />
-        <figcaption class="cap">Product – mix, margin, top/bottom performers.</figcaption>
-      </figure>
-      <figure class="tile reveal" role="listitem">
-        <img src="Data_Model.png" alt="Power BI star schema model" loading="lazy" />
-        <figcaption class="cap">Model – conformed dims, SCD-ready design.</figcaption>
-      </figure>
-      <figure class="tile reveal" role="listitem">
-        <img class="table-img" src="Data_Dictionary.png" alt="Data dictionary with KPI and column definitions" loading="lazy" />
-        <figcaption class="cap">Data dictionary – KPIs &amp; columns defined.</figcaption>
-      </figure>
-      <figure class="tile reveal" role="listitem">
-        <img class="table-img" src="Model_Information.png" alt="Model information and metadata snapshot" loading="lazy" />
-        <figcaption class="cap">Model info – lineage &amp; metadata snapshot.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- LIVE -->
-  <section id="live" class="section" aria-labelledby="live-title">
-    <div class="section-title">
-      <h2 id="live-title">Live report</h2>
-      <p>Opens in a new tab. Requires Power BI sign-in.</p>
-    </div>
-
-    <article class="card narrow reveal">
-      <a class="preview"
-         href="https://app.powerbi.com/reportEmbed?reportId=fe45a541-7352-45ed-bc42-fc05432315d2&autoAuth=true&ctid=198f3525-42fb-4b34-b9e1-9f2e4d728619"
-         target="_blank" rel="noopener noreferrer" aria-label="Open live Power BI report in a new tab">
-        <img src="Exec_Dashboard.png" alt="Retail KPI dashboard preview" loading="lazy" />
-        <span class="overlay-btn btn">View live report</span>
-      </a>
-      <p style="margin:10px 0 0 0;color:var(--muted);font-size:.95rem">
-        If you don’t have access, <a href="mailto:anastasia.sergeeva.019@gmail.com">request a demo link</a>.
+    <article class="card narrow">
+      <p>
+        <a class="btn" href="mailto:anastasia.sergeeva.019@gmail.com">Email</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/anastasia-sergeeva-384787132/" target="_blank" rel="noopener">LinkedIn</a>
       </p>
     </article>
   </section>
 
   <hr class="sep" />
   <footer role="contentinfo">
-    © <span id="yr"></span> Anastasia Sergeeva •
-    <a href="mailto:anastasia.sergeeva.019@gmail.com">Email</a> •
-    <a href="https://www.linkedin.com/in/anastasia-sergeeva-384787132/" target="_blank" rel="noopener">LinkedIn</a>
+    © <span id="yr"></span> Anastasia Sergeeva • BI / Business Analyst
   </footer>
 </main>
 
 <script>
-  // Year
   document.getElementById('yr').textContent = new Date().getFullYear();
-
-  // Simple reveal-on-scroll (no external libs)
-  const on = ('IntersectionObserver' in window);
-  if(on){
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { rootMargin: '0px 0px -10% 0px' });
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  } else {
-    document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
-  }
 </script>
 </body>
 </html>
