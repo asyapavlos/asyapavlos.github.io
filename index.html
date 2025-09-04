@@ -44,14 +44,28 @@ header{position:sticky;top:0;z-index:10;backdrop-filter:saturate(160%) blur(8px)
 .flag{font-size:.95rem;color:var(--muted)}
 nav.right a{padding:10px 12px;border-radius:10px;color:var(--muted)} nav.right a:hover{color:var(--text)}
 
-/* Hero */
-.hero{display:grid;gap:12px;padding:36px 0 8px 0}
-.hero h1{font-size:clamp(1.15rem, 1.2rem + 0.6vw, var(--hero-title-max));
-  line-height:1.2;margin:0;font-weight:700;letter-spacing:-.01em;}
-.hero p{margin:0;color:var(--muted);max-width:70ch}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.chip{background:var(--chip);padding:6px 10px;border-radius:999px;font-size:.9rem;color:var(--muted);
-  border:1px solid var(--line-soft)}
+<main class="container" id="top">
+  <!-- ABOUT (Hero merged) -->
+  <section class="hero" id="about" aria-labelledby="about-title">
+    <h1 id="about-title">About Me</h1>
+    <p style="margin:0 0 1em 0;font-size:1.05rem;color:var(--muted);">
+      <strong>Collect, process, analyse and present data</strong> — from supporting everyday business
+      decisions to driving global change.
+    </p>
+    <p>
+      I am a <strong>Business Intelligence Analyst</strong> bridging business requirements and technical solutions.
+      I build <strong>semantic data models</strong>, <strong>interactive dashboards</strong>, and ensure
+      <strong>KPI governance</strong> for better decisions. Tools: <strong>Power BI, DAX, SQL</strong>.
+      Methods: <strong>Kimball star schema, SCD</strong>. I enjoy stakeholder workshops, BRDs, and turning
+      data into clear actions.
+    </p>
+    <ul class="list">
+      <li>Dashboards adopted by executives and teams</li>
+      <li>Reduced reporting cycles by 10–30%</li>
+      <li>Languages: German (C1), English, Russian</li>
+    </ul>
+  </section>
+
 
 /* Projects grid */
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
@@ -93,44 +107,9 @@ hr.sep{border:0;border-top:1px solid var(--line-soft);margin:28px 0}
   </div>
 </header>
 
-<main class="container" id="top">
-  <!-- HERO -->
-  <section class="hero" aria-labelledby="hero-title">
-    <h1 id="hero-title">Turning data into decisions.</h1>
-    <p>
-      I collect, process, analyse and present data — from supporting everyday business decisions to driving global change.
-      I design semantic models and Power BI dashboards people actually use.
-    </p>
-    <div class="chips" aria-label="Skills">
-      <span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">SQL</span>
-      <span class="chip">Star Schema</span><span class="chip">KPI Governance</span><span class="chip">Requirements</span>
-    </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="section" aria-labelledby="about-title">
-    <div class="section-title">
-      <h2 id="about-title">About Me</h2>
-    </div>
-    <article class="card narrow">
-      <p style="margin:0 0 1em 0;font-size:1.05rem;color:var(--muted);">
-        <strong>Collect, process, analyse and present data</strong> — from supporting everyday business
-        decisions to driving global change.
-      </p>
-      <p>
-        I am a <strong>Business Intelligence Analyst</strong> bridging business requirements and technical solutions.
-        I build <strong>semantic data models</strong>, <strong>interactive dashboards</strong>, and ensure
-        <strong>KPI governance</strong> for better decisions. Tools: <strong>Power BI, DAX, SQL</strong>.
-        Methods: <strong>Kimball star schema, SCD</strong>. I enjoy stakeholder workshops, BRDs, and turning
-        data into clear actions.
-      </p>
-      <ul class="list">
-        <li>Dashboards adopted by executives and teams</li>
-        <li>Reduced reporting cycles by 10–30%</li>
-        <li>Languages: German (C1), English, Russian</li>
-      </ul>
-    </article>
-  </section>
+
+ 
 
   <!-- PROJECTS -->
   <section id="projects" class="section" aria-labelledby="projects-title">
