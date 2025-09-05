@@ -9,175 +9,274 @@
 
   <style>
     :root{
-      --bg:#0f172a; --panel:#0b1220; --text:#e5e7eb; --muted:#94a3b8;
-      --chip:#111827; --brand:#38bdf8; --brand-2:#a78bfa;
-      --line:#1e293b; --line-soft: color-mix(in srgb, var(--muted) 22%, transparent);
-      --radius:18px; --radius-sm:12px;
-      --container:1100px; --pad-x:24px; --v-gap:64px; --header-h:68px;
-      --name-size:2rem; --hero-title-max:1.55rem;
+      --bg:#0f172a;          /* page background */
+      --panel:#0b1220;       /* card/nav background */
+      --text:#e5e7eb;        /* main text */
+      --muted:#94a3b8;       /* secondary text */
+      --brand:#38bdf8;       /* cyan */
+      --brand-2:#a78bfa;     /* violet */
+      --line:#1e293b;        /* borders */
+      --radius:18px;
+      --radius-sm:12px;
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --space-1: 10px;
+      --space-2: 16px;
+      --space-3: 24px;
+      --space-4: 32px;
+      --space-5: 48px;
+      --maxw: 1100px;
     }
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg:#f8fafc; --panel:#ffffff; --text:#0f172a; --muted:#475569;
-        --chip:#f1f5f9; --line:#e2e8f0; --line-soft:#e6eef7;
-      }
-    }
+
     *{box-sizing:border-box}
-    html,body{
-      margin:0;background:var(--bg);color:var(--text);
-      font:16px/1.65 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 20% -10%, rgba(56,189,248,.08), transparent 60%),
+                  radial-gradient(1200px 800px at 80% -10%, rgba(167,139,250,.08), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+      letter-spacing:.2px;
     }
-    a{color:var(--brand);text-decoration:none}
-    a:hover{opacity:.92}
-    a:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:8px}
-    .container{max-width:var(--container);margin:0 auto;padding:28px var(--pad-x)}
-    section{scroll-margin-top:calc(var(--header-h) + 14px)}
-    .section{margin-top:var(--v-gap)}
-    .section-title{display:flex;align-items:end;justify-content:space-between;margin:6px 0 18px 0}
-    .section-title h2{margin:0;font-size:1.3rem;letter-spacing:.01em}
-    .section-title p{margin:0;color:var(--muted);font-size:.95rem}
 
-    /* Header */
-    header{
-      position:sticky;top:0;z-index:10;backdrop-filter:saturate(160%) blur(8px);
-      background: color-mix(in srgb, var(--bg) 72%, transparent);
-      border-bottom:1px solid var(--line-soft);
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Layout */
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--space-3)}
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px)}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: var(--space-2) 0;
+      border-bottom:1px solid color-mix(in srgb, var(--muted) 22%, transparent);
     }
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:var(--header-h)}
-    .nav .left{display:flex;align-items:center;gap:14px}
-    .logo{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;
-      background:linear-gradient(135deg,var(--brand),var(--brand-2))}
-    .logo span{font-weight:800;color:#fff}
-    .name{font-weight:800;font-size:var(--name-size);line-height:1.1;letter-spacing:-.01em}
-    .flag{font-size:.95rem;color:var(--muted)}
-    nav.right a{padding:10px 12px;border-radius:10px;color:var(--muted)}
-    nav.right a:hover{color:var(--text)}
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{
+      width:36px; height:36px; border-radius:12px; background:
+        conic-gradient(from 210deg, var(--brand), var(--brand-2));
+      box-shadow: 0 6px 16px rgba(56,189,248,.25), inset 0 0 0 1px rgba(255,255,255,.08);
+    }
+    .nav ul{display:flex; gap:18px; list-style:none; padding:0; margin:0}
+    .nav a{color:var(--text); opacity:.9}
+    .nav a:hover{opacity:1}
 
-    /* Projects grid */
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-    .card{grid-column:span 12;background:var(--panel);border-radius:var(--radius);
-      padding:16px;border:1px solid var(--line-soft)}
-    @media (min-width:860px){ .span-6{grid-column:span 6} }
-    .thumb{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line-soft);margin-bottom:10px}
-    .thumb img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;transition:transform .25s ease}
-    .card:hover .thumb img{transform:scale(1.01)}
-    .card h3{margin:6px 0 6px 0;font-size:1.05rem}
-    .meta{color:var(--muted);font-size:.9rem;margin:0 0 8px 0}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;
-      background:var(--brand);color:#05111a;font-weight:700;border:0}
-    .btn.ghost{background:var(--chip);color:var(--text);border:1px solid var(--line)}
+    /* Hero / About */
+    .hero{
+      padding: var(--space-5) 0 var(--space-4);
+      display:grid; gap:var(--space-3);
+    }
+    .name{
+      font-size: clamp(28px, 5vw, 44px);
+      line-height:1.15; font-weight:800;
+      letter-spacing:.4px;
+      background: linear-gradient(90deg, var(--text), color-mix(in srgb, var(--brand) 35%, var(--text)));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .subtitle{font-size: clamp(16px, 2.3vw, 18px); color:var(--muted); max-width:800px}
+    .chips{display:flex; flex-wrap:wrap; gap:10px}
+    .chip{
+      padding:8px 12px; border-radius:999px; font-size:14px; color:var(--text);
+      background: color-mix(in srgb, var(--panel) 80%, black);
+      border:1px solid color-mix(in srgb, var(--muted) 24%, transparent);
+    }
 
-    /* Lists, contact, footer */
-    .list{margin:0;padding-left:20px}
-    .list li{margin:.35em 0}
-    #contact{text-align:center}
-    #contact h2{margin-bottom:6px}
-    #contact p.note{color:var(--muted);margin:-6px 0 14px 0}
-    #contact .links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px}
-    footer{text-align:center;color:var(--muted);font-size:.9rem;margin:60px 0 20px 0}
-    hr.sep{border:0;border-top:1px solid var(--line-soft);margin:28px 0}
+    /* Panels / Sections */
+    section{padding: var(--space-4) 0}
+    .panel{
+      background:var(--panel); border:1px solid color-mix(in srgb, var(--muted) 18%, transparent);
+      border-radius:var(--radius); box-shadow:var(--shadow);
+      padding: var(--space-3);
+    }
+    .section-title{
+      margin:0 0 var(--space-3) 0; font-size:22px; letter-spacing:.3px
+    }
+    .muted{color:var(--muted)}
+
+    /* Projects Grid */
+    .grid{
+      display:grid; gap: var(--space-3);
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .col-12{grid-column: span 12}
+    .col-6{grid-column: span 6}
+    .col-4{grid-column: span 4}
+    @media (max-width: 980px){
+      .col-6{grid-column: span 12}
+      .col-4{grid-column: span 12}
+    }
+
+    .card{
+      background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 90%, black), var(--panel));
+      border:1px solid color-mix(in srgb, var(--muted) 20%, transparent);
+      border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);
+      display:flex; flex-direction:column; min-height:100%;
+    }
+    .thumb{
+      aspect-ratio: 16/9; width:100%; object-fit:cover; display:block;
+      border-bottom:1px solid color-mix(in srgb, var(--muted) 20%, transparent);
+    }
+    .card-body{padding:18px}
+    .card h3{margin:0 0 8px 0; font-size:18px}
+    .card p{margin:0 0 12px 0; color:var(--muted)}
+    .card .actions{margin-top:auto; padding:0 18px 18px}
+    .btn{
+      display:inline-block; padding:10px 14px; border-radius:12px;
+      border:1px solid color-mix(in srgb, var(--brand) 40%, white 0%);
+      background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 15%, var(--panel)), var(--panel));
+      color:var(--text); text-decoration:none;
+    }
+    .btn:hover{filter:brightness(1.08)}
+
+    /* Embedded report wrapper (Project #3) */
+    .embed-wrap{
+      border-radius:var(--radius); overflow:hidden; border:1px solid color-mix(in srgb, var(--muted) 20%, transparent);
+      box-shadow:var(--shadow); background: #0b0f1a;
+    }
+    .embed-header{
+      display:flex; align-items:center; justify-content:space-between; padding:12px 14px;
+      border-bottom:1px solid color-mix(in srgb, var(--muted) 20%, transparent);
+      background: linear-gradient(180deg, rgba(56,189,248,.08), transparent);
+    }
+    .embed-title{margin:0; font-size:16px}
+    .embed-actions a{margin-left:10px}
+    .embed-iframe{
+      width:100%; height:640px; border:0; display:block; background:#000;
+    }
+
+    /* Contact & Footer */
+    #contact { text-align: center; }
+    footer { text-align: center; color:var(--muted); padding: var(--space-4) 0; border-top:1px solid color-mix(in srgb, var(--muted) 22%, transparent); }
+
+    /* Helpers */
+    .sep{height:1px; background:color-mix(in srgb, var(--muted) 22%, transparent); margin:28px 0}
   </style>
 </head>
 <body>
+
+  <!-- Top Nav -->
   <header>
-    <div class="container nav" role="navigation" aria-label="Primary">
-      <div class="left">
-        <div class="logo" aria-hidden="true"><span>AS</span></div>
-        <div>
-          <div class="name">Anastasia Sergeeva</div>
-          <div class="flag">BI Developer • Business Analyst • DE/EN/RU</div>
-        </div>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <strong>Anastasia Sergeeva</strong>
       </div>
-      <nav class="right" aria-label="Sections">
-        <a href="#top">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container" id="top">
-    <!-- ABOUT -->
-    <section class="hero" id="about" aria-labelledby="about-title">
-      <h1 id="about-title">Hi, I'm Anastasia.</h1>
-      <p style="margin:0 0 1em 0;font-size:1.05rem;color:var(--muted);">
-        I collect, process, model, analyse and present data — turning raw numbers into clear insights that support everyday decisions and strategic growth.
+  <!-- Hero / About -->
+  <main class="wrap">
+    <section id="about" class="hero">
+      <h1 class="name">BI Developer / Business Analyst</h1>
+      <p class="subtitle">
+        I build reliable analytics: dimensional models, clean semantic layers, and fast dashboards.
+        Comfortable gathering requirements, documenting processes (BPMN/BRD), and aligning stakeholders on definitions and KPIs.
+        Skilled in Power BI, DAX, SQL, data governance, and performance tuning. Experience with ML and practical AI tooling.
       </p>
-      <p>
-        As a <strong>Business Intelligence Analyst</strong>, I bridge business needs and technical delivery.
-        I design <strong>semantic data models</strong>, build <strong>interactive dashboards</strong>, and ensure
-        <strong>KPI governance</strong> so teams can act with confidence. My toolbox: <strong>Power BI (DAX), Excel, SQL, Python, Aris, Visio, Lucidchart</strong>.
-      </p>
-
-      <h3 style="margin-top:1.2em;font-size:1.1rem">Methods &amp; Approach</h3>
-      <ul class="list">
-        <li><strong>Modeling:</strong> Kimball dimensional design, conformed dimensions, SCD for history</li>
-        <li><strong>Semantic layer:</strong> Power BI Tabular, clean DAX measures, calc groups, role-playing dims</li>
-        <li><strong>Pipelines:</strong> SQL/Power Query ELT, query folding, incremental refresh &amp; partitioning</li>
-        <li><strong>Governance:</strong> KPI dictionary, data lineage, clear definitions for “one version of truth”</li>
-        <li><strong>Performance &amp; security:</strong> VertiPaq optimization, aggregations, RLS/OLS</li>
-      </ul>
-
-      <ul class="list" style="margin-top:1.2em">
-        <li>Dashboards adopted by executives and cross-functional teams</li>
-        <li>Reporting cycles reduced by 10–30%</li>
-        <li>Languages: German (C1), English (C1), Russian (C2), Greek (B2)</li>
-      </ul>
+      <div class="chips">
+        <span class="chip">Power BI (Tabular, DAX)</span>
+        <span class="chip">SQL & ETL/ELT</span>
+        <span class="chip">Dimensional Modeling</span>
+        <span class="chip">BPMN • BRD</span>
+        <span class="chip">KPI Governance</span>
+        <span class="chip">RLS/OLS</span>
+        <span class="chip">AI-assisted workflows</span>
+      </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section" aria-labelledby="projects-title">
-      <div class="section-title">
-        <h2 id="projects-title">Selected Projects</h2>
-      </div>
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
 
       <div class="grid">
         <!-- Project 1 -->
-        <article class="card span-6">
-          <a class="thumb" href="projects/retail-kpi.html" aria-label="Open Retail KPI project">
-            <img src="Exec_Dashboard.png" alt="Retail KPI dashboard preview" loading="lazy" />
-          </a>
-          <h3><a href="projects/retail-kpi.html">Retail KPI Dashboard &amp; Semantic Model</a></h3>
-          <p class="meta">Power BI · DAX · SQL · Star schema · RLS</p>
-          <p style="margin:0 0 10px 0">
-            Single source of truth for sales &amp; margin. Conformed dimensions, KPI layer, drill-through, and regional RLS.
-          </p>
-          <a class="btn" href="projects/retail-kpi.html">View case study</a>
+        <article class="col-6">
+          <div class="card">
+            <img class="thumb" src="assets/projects/retail-kpi_1.jpg" alt="Retail KPI dashboard thumbnail">
+            <div class="card-body">
+              <h3>Retail KPI Suite</h3>
+              <p>Sales & margin, stock turns, promo ROI. Star schema with conformed dimensions and SCD history.</p>
+            </div>
+            <div class="actions">
+              <a class="btn" href="projects/retail-kpi.html">Open case study</a>
+            </div>
+          </div>
         </article>
 
         <!-- Project 2 -->
-        <article class="card span-6">
-          <a class="thumb" href="projects/gross-profit-performance.html" aria-label="Open Gross Profit project">
-            <img src="Gross_Profit_Performance.png" alt="Gross Profit dashboard preview" loading="lazy" />
-          </a>
-          <h3><a href="projects/gross-profit-performance.html">Gross Profit Performance Dashboard</a></h3>
-          <p class="meta">Power BI · DAX · SQL · Data Modeling</p>
-          <p style="margin:0 0 10px 0">
-            Executives’ source of truth for gross profit. Variance analysis, product &amp; account drilldowns, KPI governance.
-          </p>
-          <a class="btn" href="projects/gross-profit-performance.html">View case study</a>
+        <article class="col-6">
+          <div class="card">
+            <img class="thumb" src="assets/projects/finance-cfo_1.jpg" alt="CFO pack dashboard thumbnail">
+            <div class="card-body">
+              <h3>CFO Pack & Forecast</h3>
+              <p>Executive pack with P&L, cash, and variance analysis. Calc groups and aggregations for speed.</p>
+            </div>
+            <div class="actions">
+              <a class="btn" href="projects/cfo-pack.html">Open case study</a>
+            </div>
+          </div>
         </article>
+
+        <!-- Project 3 (embedded directly below in full) -->
+        <div class="col-12">
+          <div class="panel">
+            <h3 style="margin:0 0 8px 0;">Project 3 — Operations Insights (Embedded)</h3>
+            <p class="muted" style="margin:0">
+              Live Power BI report embedded on the homepage. Optimized model (role-playing dates, proper grain),
+              thin report, incremental refresh, and row-level security.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="embed-wrap">
+            <div class="embed-header">
+              <h4 class="embed-title">Operations Insights — Power BI</h4>
+              <div class="embed-actions">
+                <!-- Replace the href with your direct report link if needed -->
+                <a class="btn" href="https://app.powerbi.com/" target="_blank" rel="noopener">Open in Power BI</a>
+              </div>
+            </div>
+            <!-- Replace src with your actual Power BI embed URL -->
+            <iframe
+              class="embed-iframe"
+              title="Operations Insights — Power BI"
+              src="https://app.powerbi.com/view?r=YOUR_EMBED_REPORT_ID"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
-      <p class="note">Prefer email or LinkedIn</p>
-      <div class="links">
-        <a class="btn" href="mailto:anastasia.sergeeva.019@gmail.com">Email</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/anastasia-sergeeva-384787132/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </section>
+    <div class="sep"></div>
 
-    <hr class="sep" />
-    <footer role="contentinfo">
-      © <span id="yr"></span> Anastasia Sergeeva • BI / Business Analyst
-    </footer>
+    <!-- Contact -->
+    <section id="contact" class="panel">
+      <h2 class="section-title">Contact</h2>
+      <p class="muted">
+        Email: <a href="mailto:anastasia@example.com">anastasia@example.com</a> •
+        LinkedIn: <a href="https://www.linkedin.com/in/anastasia-sergeeva" target="_blank" rel="noopener">anastasia-sergeeva</a>
+      </p>
+    </section>
   </main>
 
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Anastasia Sergeeva • One version of truth, fast.
+    </div>
+  </footer>
+
   <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
+    // Simple current year
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
