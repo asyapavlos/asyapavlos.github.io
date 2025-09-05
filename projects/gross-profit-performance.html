@@ -22,14 +22,29 @@ h1{font-size:1.6rem;margin-top:0}
 h2{font-size:1.25rem;margin-top:2em}
 p{margin:.7em 0}
 img{border-radius:12px;border:1px solid var(--line-soft);margin:16px 0;max-width:100%;height:auto}
-.back{display:inline-block;margin:20px 0;color:var(--muted)}
-.back:hover{color:var(--text)}
+
+/* Breadcrumb */
+.breadcrumb{font-size:.9rem;margin:4px 0 18px 0;display:flex;gap:.4rem;flex-wrap:wrap}
+.breadcrumb a{color:var(--muted);text-decoration:none;border-radius:6px;padding:2px 4px}
+.breadcrumb a:hover{text-decoration:underline;color:var(--text)}
+.breadcrumb .sep{color:var(--muted)}
+.breadcrumb .current{color:var(--text)}
+
+/* Footer */
 footer{margin:60px 0 20px 0;color:var(--muted);font-size:.9rem;text-align:center}
 </style>
 </head>
 <body>
 <main class="container">
-  <a href="../index.html#projects" class="back">← Back to Projects</a>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">›</span>
+    <a href="../index.html#projects">Projects</a>
+    <span class="sep">›</span>
+    <span class="current">Gross Profit Performance</span>
+  </nav>
+
   <h1>Gross Profit Performance Dashboard</h1>
   <p><em>Power BI · DAX · SQL · Data Modeling</em></p>
 
