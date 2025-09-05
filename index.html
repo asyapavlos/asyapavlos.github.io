@@ -66,6 +66,12 @@
       padding: var(--space-5) 0 var(--space-4);
       display:grid; gap:var(--space-3);
     }
+    /* NEW: plain intro line matching body text */
+    .intro{
+      font: inherit;               /* inherit family, size, weight, line-height */
+      color: var(--text);
+      margin: 0;                   /* no extra spacing */
+    }
     .name{
       font-size: clamp(28px, 5vw, 44px);
       line-height:1.15; font-weight:800;
@@ -174,7 +180,11 @@
   <!-- Hero / About -->
   <main class="wrap">
     <section id="about" class="hero">
+      <!-- NEW: plain text line -->
+      <p class="intro">Hi, I’m Anastasia.</p>
+
       <h1 class="name">BI Developer / Business Analyst</h1>
+
       <p class="subtitle">
         I build reliable analytics: dimensional models, clean semantic layers, and fast dashboards.
         Comfortable gathering requirements, documenting processes (BPMN/BRD), and aligning stakeholders on definitions and KPIs.
@@ -240,11 +250,9 @@
             <div class="embed-header">
               <h4 class="embed-title">Operations Insights — Power BI</h4>
               <div class="embed-actions">
-                <!-- Replace the href with your direct report link if needed -->
                 <a class="btn" href="https://app.powerbi.com/" target="_blank" rel="noopener">Open in Power BI</a>
               </div>
             </div>
-            <!-- Replace src with your actual Power BI embed URL -->
             <iframe
               class="embed-iframe"
               title="Operations Insights — Power BI"
@@ -275,7 +283,6 @@
   </footer>
 
   <script>
-    // Simple current year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
