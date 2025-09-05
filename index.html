@@ -22,19 +22,26 @@
   }
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--text);
-  font:16px/1.65 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;}
-a{color:var(--brand);text-decoration:none} a:hover{opacity:.92}
+html,body{
+  margin:0;background:var(--bg);color:var(--text);
+  font:16px/1.65 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+}
+a{color:var(--brand);text-decoration:none}
+a:hover{opacity:.92}
 a:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:8px}
 .container{max-width:var(--container);margin:0 auto;padding:28px var(--pad-x)}
-section{scroll-margin-top:calc(var(--header-h) + 14px)} .section{margin-top:var(--v-gap)}
+section{scroll-margin-top:calc(var(--header-h) + 14px)}
+.section{margin-top:var(--v-gap)}
 .section-title{display:flex;align-items:end;justify-content:space-between;margin:6px 0 18px 0}
 .section-title h2{margin:0;font-size:1.3rem;letter-spacing:.01em}
 .section-title p{margin:0;color:var(--muted);font-size:.95rem}
 
 /* Header */
-header{position:sticky;top:0;z-index:10;backdrop-filter:saturate(160%) blur(8px);
-  background: color-mix(in srgb, var(--bg) 72%, transparent); border-bottom:1px solid var(--line-soft);}
+header{
+  position:sticky;top:0;z-index:10;backdrop-filter:saturate(160%) blur(8px);
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  border-bottom:1px solid var(--line-soft);
+}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:var(--header-h)}
 .nav .left{display:flex;align-items:center;gap:14px}
 .logo{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;
@@ -42,48 +49,38 @@ header{position:sticky;top:0;z-index:10;backdrop-filter:saturate(160%) blur(8px)
 .logo span{font-weight:800;color:#fff}
 .name{font-weight:800;font-size:var(--name-size);line-height:1.1;letter-spacing:-.01em}
 .flag{font-size:.95rem;color:var(--muted)}
-nav.right a{padding:10px 12px;border-radius:10px;color:var(--muted)} nav.right a:hover{color:var(--text)}
-
-<main class="container" id="top">
-  <!-- ABOUT (Hero merged) -->
-  <section class="hero" id="about" aria-labelledby="about-title">
-    <h1 id="about-title">About Me</h1>
-    <p style="margin:0 0 1em 0;font-size:1.05rem;color:var(--muted);">
-      <strong>Collect, process, analyse and present data</strong> — from supporting everyday business
-      decisions to driving global change.
-    </p>
-    <p>
-      I am a <strong>Business Intelligence Analyst</strong> bridging business requirements and technical solutions.
-      I build <strong>semantic data models</strong>, <strong>interactive dashboards</strong>, and ensure
-      <strong>KPI governance</strong> for better decisions. Tools: <strong>Power BI, DAX, SQL</strong>.
-      Methods: <strong>Kimball star schema, SCD</strong>. I enjoy stakeholder workshops, BRDs, and turning
-      data into clear actions.
-    </p>
-    <ul class="list">
-      <li>Dashboards adopted by executives and teams</li>
-      <li>Reduced reporting cycles by 10–30%</li>
-      <li>Languages: German (C1), English, Russian</li>
-    </ul>
-  </section>
-
+nav.right a{padding:10px 12px;border-radius:10px;color:var(--muted)}
+nav.right a:hover{color:var(--text)}
 
 /* Projects grid */
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-.card{grid-column:span 12;background:var(--panel);border-radius:var(--radius);
-  padding:22px;border:1px solid var(--line-soft)}
-@media(min-width:860px){ .span-6{grid-column:span 6} }
-.thumb{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line-soft);margin-bottom:12px}
-.thumb img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;transition:transform .25s ease}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.card{
+  grid-column:span 12;background:var(--panel);border-radius:var(--radius);
+  padding:16px;border:1px solid var(--line-soft)
+}
+/* 2-up on >=860px */
+@media (min-width:860px){
+  .span-6{grid-column:span 6}
+}
+/* Keep thumbs compact */
+.thumb{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line-soft);margin-bottom:10px}
+.thumb img{
+  display:block;width:100%;height:auto;aspect-ratio:16/10;
+  object-fit:cover;transition:transform .25s ease
+}
 .card:hover .thumb img{transform:scale(1.01)}
 .card h3{margin:6px 0 6px 0;font-size:1.05rem}
-.meta{color:var(--muted);font-size:.9rem;margin:0 0 10px 0}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;
-  background:var(--brand);color:#05111a;font-weight:700;border:0}
+.meta{color:var(--muted);font-size:.9rem;margin:0 0 8px 0}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;
+  background:var(--brand);color:#05111a;font-weight:700;border:0
+}
 .btn.ghost{background:var(--chip);color:var(--text);border:1px solid var(--line)}
 
 /* About + Contact */
 .card.narrow{max-width:720px;margin:0 auto}
-.list{margin:0;padding-left:20px} .list li{margin:.35em 0}
+.list{margin:0;padding-left:20px}
+.list li{margin:.35em 0}
 
 /* Footer */
 footer{margin:var(--v-gap) 0 20px 0;color:var(--muted);font-size:.9rem}
@@ -103,13 +100,31 @@ hr.sep{border:0;border-top:1px solid var(--line-soft);margin:28px 0}
     <nav class="right" aria-label="Sections">
       <a href="#top">Home</a>
       <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-
-
- 
+<main class="container" id="top">
+  <!-- ABOUT (Hero merged) -->
+  <section class="hero" id="about" aria-labelledby="about-title">
+    <h1 id="about-title">About Me</h1>
+    <p style="margin:0 0 1em 0;font-size:1.05rem;color:var(--muted);">
+      <strong>Collect, process, analyse and present data</strong> — from supporting everyday business decisions to driving global change.
+    </p>
+    <p>
+      I am a <strong>Business Intelligence Analyst</strong> bridging business requirements and technical solutions.
+      I build <strong>semantic data models</strong>, <strong>interactive dashboards</strong>, and ensure
+      <strong>KPI governance</strong> for better decisions. Tools: <strong>Power BI, DAX, SQL</strong>.
+      Methods: <strong>Kimball star schema, SCD</strong>. I enjoy stakeholder workshops, BRDs, and turning
+      data into clear actions.
+    </p>
+    <ul class="list">
+      <li>Dashboards adopted by executives and teams</li>
+      <li>Reduced reporting cycles by 10–30%</li>
+      <li>Languages: German (C1), English, Russian</li>
+    </ul>
+  </section>
 
   <!-- PROJECTS -->
   <section id="projects" class="section" aria-labelledby="projects-title">
@@ -125,7 +140,7 @@ hr.sep{border:0;border-top:1px solid var(--line-soft);margin:28px 0}
         </a>
         <h3><a href="projects/retail-kpi.html">Retail KPI Dashboard &amp; Semantic Model</a></h3>
         <p class="meta">Power BI · DAX · SQL · Star schema · RLS</p>
-        <p style="margin:0 0 12px 0">
+        <p style="margin:0 0 10px 0">
           Single source of truth for sales & margin. Conformed dimensions, KPI layer, drill-through, RLS.
         </p>
         <a class="btn" href="projects/retail-kpi.html">View case study</a>
@@ -138,7 +153,7 @@ hr.sep{border:0;border-top:1px solid var(--line-soft);margin:28px 0}
         </a>
         <h3>Upcoming Project</h3>
         <p class="meta">Power BI · Data Modeling</p>
-        <p style="margin:0 0 12px 0">Case study coming soon.</p>
+        <p style="margin:0 0 10px 0">Case study coming soon.</p>
         <a class="btn ghost" href="#">Soon</a>
       </article>
     </div>
