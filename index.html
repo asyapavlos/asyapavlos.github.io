@@ -61,6 +61,14 @@
     .nav a{color:var(--text); opacity:.9}
     .nav a:hover{opacity:1}
 
+    .thumb{
+  aspect-ratio: 16/9;
+  width:100%;
+  object-fit:cover;
+  display:block;
+  border-bottom:1px solid color-mix(in srgb, var(--muted) 20%, transparent);
+}
+
     /* Hero / About */
     .hero{
       padding: var(--space-5) 0 var(--space-4);
@@ -206,68 +214,57 @@
 
       <div class="grid">
         <!-- Project 1 -->
-        <article class="col-6">
-          <div class="card">
-            <img class="thumb" src="assets/projects/retail-kpi_1.jpg" alt="Retail KPI dashboard thumbnail">
-            <div class="card-body">
-              <h3>Retail KPI Suite</h3>
-              <p>Sales & margin, stock turns, promo ROI. Star schema with conformed dimensions and SCD history.</p>
-            </div>
-            <div class="actions">
-              <a class="btn" href="projects/retail-kpi.html">Open case study</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 2 -->
-        <article class="col-6">
-          <div class="card">
-            <img class="thumb" src="assets/projects/finance-cfo_1.jpg" alt="CFO pack dashboard thumbnail">
-            <div class="card-body">
-              <h3>CFO Pack & Forecast</h3>
-              <p>Executive pack with P&L, cash, and variance analysis. Calc groups and aggregations for speed.</p>
-            </div>
-            <div class="actions">
-              <a class="btn" href="projects/cfo-pack.html">Open case study</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 3 (embedded directly below in full) -->
-   <!-- Project 3 (Tableau embedded project) -->
-<div class="col-12">
-  <div class="panel">
-    <h3 style="margin:0 0 8px 0;">Project 3 — Discount Policy Analysis (Tableau)</h3>
-    <p class="muted" style="margin:0">
-      Tableau dashboard exploring discount policy performance with interactive filters and drill-downs.
-    </p>
-  </div>
-</div>
-
-<div class="col-12">
-  <div class="embed-wrap">
-    <div class="embed-header">
-      <h4 class="embed-title">Discount Policy Analysis — Tableau</h4>
-      <div class="embed-actions">
-        <a class="btn" href="projects/discount-policy-analysis.html" target="_blank" rel="noopener">
-          Open case study
-        </a>
-      </div>
+<article class="col-6">
+  <div class="card">
+    <img class="thumb"
+         src="./assets/projects/retail-kpi_1.jpg"
+         alt="Retail KPI dashboard thumbnail"
+         loading="lazy">
+    <div class="card-body">
+      <h3>Retail KPI Suite</h3>
+      <p>Sales & margin, stock turns, promo ROI. Star schema with conformed dimensions and SCD history.</p>
     </div>
-
-    <!-- Embed the project page which contains the Tableau viz -->
-    <iframe
-      class="embed-iframe"
-      title="Discount Policy Analysis — Tableau"
-      src="projects/discount-policy-analysis.html"
-      allowfullscreen="true">
-    </iframe>
+    <div class="actions">
+      <a class="btn" href="projects/retail-kpi.html">Open case study</a>
+    </div>
   </div>
-</div>
+</article>
 
-    </section>
+<!-- Project 2 -->
+<article class="col-6">
+  <div class="card">
+    <img class="thumb"
+         src="./assets/projects/finance-cfo_1.jpg"
+         alt="CFO pack dashboard thumbnail"
+         loading="lazy">
+    <div class="card-body">
+      <h3>CFO Pack & Forecast</h3>
+      <p>Executive pack with P&L, cash, and variance analysis. Calc groups and aggregations for speed.</p>
+    </div>
+    <div class="actions">
+      <a class="btn" href="projects/cfo-pack.html">Open case study</a>
+    </div>
+  </div>
+</article>
 
-    <div class="sep"></div>
+<!-- Project 3 -->
+<article class="col-6">
+  <div class="card">
+    <img class="thumb"
+         src="./assets/projects/bellabeat_1.jpg"
+         alt="Bellabeat study in R – dashboard/plots thumbnail"
+         loading="lazy">
+    <div class="card-body">
+      <h3>Bellabeat Study (R)</h3>
+      <p>Exploratory analysis of smart-device usage and activity patterns. Tidyverse, ggplot2, insights for marketing actions.</p>
+    </div>
+    <div class="actions">
+      <a class="btn" href="projects/bellabeat.html">Open case study</a>
+    </div>
+  </div>
+</article>
+     
+
 
     <!-- Contact -->
         <section id="contact" class="panel">
