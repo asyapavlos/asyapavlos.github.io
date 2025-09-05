@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Discount Policy Analysis (Tableau) – Anastasia Sergeeva</title>
+<meta name="description" content="Interactive Tableau dashboard evaluating discount strategies and their impact on sales & profitability. Drill-downs by product, region, and discount level." />
+<meta name="theme-color" content="#0f172a" />
+<style>
+:root{
+  --bg:#0f172a; --panel:#0b1220; --text:#e5e7eb; --muted:#94a3b8;
+  --brand:#38bdf8; --brand-2:#a78bfa; --line:#1e293b; --line-soft:#314156;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1040px;margin:0 auto;padding:24px}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+nav a{margin-right:14px;color:var(--muted)}
+nav a.active, nav a:hover{color:var(--text)}
+h1{font-size:32px;margin:12px 0 8px}
+.muted{color:var(--muted)}
+.hr{border:0;border-top:1px solid var(--line-soft);margin:24px 0}
+figure{margin:16px 0}
+figure img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line-soft)}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div><a href="/" aria-label="Home">← Home</a></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/#projects" class="active">Projects</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <h1>Discount Policy Analysis (Tableau)</h1>
+  <p class="muted">Interactive dashboard evaluating discount strategies and their impact on sales &amp; profitability. Drill down by product category, region, and discount level to support pricing and margin optimization.</p>
+
+  <div class="hr"></div>
+
+  <!-- Tableau Public Embed (your code, unchanged) -->
+  <div class='tableauPlaceholder' id='viz1757066439525' style='position: relative'>
+    <noscript>
+      <a href='#'>
+        <img alt='Discount Policy Analysis '
+             src='https://public.tableau.com/static/images/An/AnalysisofDiscountPolicy/DiscountPolicyAnalysis/1_rss.png'
+             style='border: none' />
+      </a>
+    </noscript>
+    <object class='tableauViz' style='display:none;'>
+      <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+      <param name='embed_code_version' value='3' />
+      <param name='site_root' value='' />
+      <param name='name' value='AnalysisofDiscountPolicy/DiscountPolicyAnalysis' />
+      <param name='tabs' value='no' />
+      <param name='toolbar' value='yes' />
+      <param name='static_image' value='https://public.tableau.com/static/images/An/AnalysisofDiscountPolicy/DiscountPolicyAnalysis/1.png' />
+      <param name='animate_transition' value='yes' />
+      <param name='display_static_image' value='yes' />
+      <param name='display_spinner' value='yes' />
+      <param name='display_overlay' value='yes' />
+      <param name='display_count' value='yes' />
+      <param name='language' value='en-GB' />
+    </object>
+  </div>
+  <script type='text/javascript'>
+    var divElement = document.getElementById('viz1757066439525');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    vizElement.style.width='100%';
+    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  </script>
+
+  <div class="hr"></div>
+
+  <section>
+    <h2 style="font-size:20px;margin-bottom:8px;">Highlights</h2>
+    <ul>
+      <li>KPI-focused view of sales, profit, and discount levels</li>
+      <li>Segmentation by region, category, sub-category, and customer segment</li>
+      <li>Supports discount policy reviews and margin optimization</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>
