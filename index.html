@@ -140,6 +140,17 @@
     #contact .dot{ display:inline-block; margin: 0 10px; color: var(--muted); }
 
     footer{ text-align:center; color:var(--muted); padding: var(--space-4) 0; border-top:1px solid var(--line-soft); }
+    
+.logo-photo img {
+  width: 100px;         /* larger, shows more of face */
+  height: 100px;
+  object-fit: cover;
+  object-position: top center;   /* shift focus to the face */
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  box-shadow: 0 4px 12px rgba(0,0,0,.4);
+}
+    
   </style>
 </head>
 <body>
