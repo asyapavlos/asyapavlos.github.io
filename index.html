@@ -28,39 +28,6 @@
       --maxw: 1100px;
     }
 
-    /* Hero (single definition: photo left, text right) */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 32px;
-      padding: 40px 0 20px;
-    }
-    .hero-photo img {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 50%;          /* round shape */
-      border: 3px solid var(--line);
-      box-shadow: 0 6px 18px rgba(0,0,0,.45);
-    }
-    .hero-text { flex: 1; }
-    .hero-text h1 {
-      font-size: clamp(28px, 5vw, 40px);
-      margin: 0;
-    }
-    .hero-text h2 {
-      font-size: clamp(20px, 3.5vw, 26px);
-      margin: 6px 0 18px;
-      font-weight: 600;
-      color: var(--brand);
-    }
-    .hero-text p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 680px;
-    }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -78,7 +45,6 @@
     a{color:var(--brand); text-decoration:none}
     a:hover{text-decoration:underline}
 
-    /* Layout */
     .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--space-3)}
     header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px)}
     .nav{
@@ -87,16 +53,32 @@
       border-bottom:1px solid var(--line-soft);
     }
     .brand{display:flex; gap:12px; align-items:center}
-    .logo{
-      width:36px; height:36px; border-radius:12px; background:
-        conic-gradient(from 210deg, var(--brand), var(--brand-2));
-      box-shadow: 0 6px 16px rgba(56,189,248,.25), inset 0 0 0 1px rgba(255,255,255,.08);
+    .logo-photo img{
+      width:70px;
+      height:70px;
+      object-fit:cover;
+      border-radius:50%;
+      border:2px solid var(--line);
+      box-shadow:0 4px 12px rgba(0,0,0,.4);
+    }
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.2;
+    }
+    .brand-text strong{
+      font-size:18px;
+      font-weight:700;
+    }
+    .brand-text .profession{
+      font-size:14px;
+      color:var(--brand);
+      font-weight:500;
     }
     .nav ul{display:flex; gap:18px; list-style:none; padding:0; margin:0}
     .nav a{color:var(--text); opacity:.9}
     .nav a:hover{opacity:1}
 
-    /* Shared */
     .thumb{
       aspect-ratio: 16/9;
       width:100%;
@@ -105,22 +87,15 @@
       border-bottom:1px solid color-mix(in srgb, var(--muted) 20%, transparent);
     }
 
-    /* Optional name/subtitle helpers (unused but safe to keep) */
-    .name{
-      font-size: clamp(28px, 5vw, 44px);
-      line-height:1.15; font-weight:800; letter-spacing:.4px;
-      background: linear-gradient(90deg, var(--text), color-mix(in srgb, var(--brand) 35%, var(--text)));
-      -webkit-background-clip:text; background-clip:text; color:transparent;
+    .hero {
+      padding: 40px 0 20px;
     }
-    .subtitle{font-size: clamp(16px, 2.3vw, 18px); color:var(--muted); max-width:800px}
-    .chips{display:flex; flex-wrap:wrap; gap:10px}
-    .chip{
-      padding:8px 12px; border-radius:999px; font-size:14px; color:var(--text);
-      background: color-mix(in srgb, var(--panel) 80%, black);
-      border:1px solid color-mix(in srgb, var(--muted) 24%, transparent);
+    .hero-text p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 680px;
     }
 
-    /* Panels / Sections */
     section{padding: var(--space-4) 0}
     .panel{
       background:var(--panel); border:1px solid color-mix(in srgb, var(--muted) 18%, transparent);
@@ -130,7 +105,6 @@
     .section-title{ margin:0 0 var(--space-3) 0; font-size:22px; letter-spacing:.3px }
     .muted{color:var(--muted)}
 
-    /* Projects Grid */
     .grid{ display:grid; gap: var(--space-3); grid-template-columns: repeat(12, 1fr); }
     .col-12{grid-column: span 12}
     .col-6{grid-column: span 6}
@@ -157,21 +131,6 @@
     }
     .btn:hover{filter:brightness(1.08)}
 
-    /* Embedded report (if used later) */
-    .embed-wrap{
-      border-radius:var(--radius); overflow:hidden; border:1px solid color-mix(in srgb, var(--muted) 20%, transparent);
-      box-shadow:var(--shadow); background:#0b0f1a;
-    }
-    .embed-header{
-      display:flex; align-items:center; justify-content:space-between; padding:12px 14px;
-      border-bottom:1px solid color-mix(in srgb, var(--muted) 20%, transparent);
-      background: linear-gradient(180deg, rgba(56,189,248,.08), transparent);
-    }
-    .embed-title{margin:0; font-size:16px}
-    .embed-actions a{margin-left:10px}
-    .embed-iframe{ width:100%; height:640px; border:0; display:block; background:#000; }
-
-    /* Contact & Footer */
     hr.sep{border:0; border-top:1px solid var(--line-soft); margin:28px 0}
     #contact{ text-align:center; padding: 20px 0 10px; }
     #contact .h2{ font-size: clamp(20px, 2.2vw, 26px); margin: 0 0 10px; color: var(--text); }
@@ -189,8 +148,13 @@
   <header>
     <div class="wrap nav">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <strong>Anastasia Sergeeva</strong>
+        <div class="logo-photo">
+          <img src="./assets/projects/NastyaBobby.jpg" alt="Portrait of Anastasia Sergeeva">
+        </div>
+        <div class="brand-text">
+          <strong>Anastasia Sergeeva</strong>
+          <span class="profession">BI Developer / Business Analyst</span>
+        </div>
       </div>
       <nav>
         <ul>
@@ -205,14 +169,9 @@
   <!-- Main -->
   <main class="wrap">
 
-    <!-- Hero (serves as About anchor) -->
+    <!-- Hero -->
     <section id="about" class="hero">
-      <div class="hero-photo">
-        <img src="./assets/projects/NastyaBobby.jpg" alt="Portrait of Anastasia Sergeeva">
-      </div>
       <div class="hero-text">
-        <h1>Anastasia Sergeeva</h1>
-        <h2>BI Developer / Business Analyst</h2>
         <p>
           I build reliable analytics: dimensional models, clean semantic layers, and fast dashboards.
           Comfortable gathering requirements, documenting processes (BPMN/BRD), and aligning stakeholders on KPIs.
