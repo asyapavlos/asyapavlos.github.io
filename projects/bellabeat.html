@@ -4,103 +4,102 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bellabeat Study (R) – Case Study</title>
-  <meta name="description" content="Exploratory analysis of Bellabeat smart-device data using R (tidyverse, ggplot2). Findings for marketing and product decisions." />
   <meta name="theme-color" content="#0f172a" />
   <style>
     :root{
       --bg:#0f172a; --panel:#0b1220; --text:#e5e7eb; --muted:#94a3b8;
       --brand:#38bdf8; --brand-2:#a78bfa; --line:#1e293b;
-      --radius:18px; --shadow: 0 12px 30px rgba(0,0,0,.35);
-      --space-2:16px; --space-3:24px; --space-4:32px; --maxw:1100px;
+      --line-soft: color-mix(in srgb, var(--muted) 22%, transparent);
+      --radius:18px; --shadow:0 12px 30px rgba(0,0,0,.35); --maxw:1100px;
+      --space-2:16px; --space-3:24px; --space-4:32px; --space-5:48px;
     }
     *{box-sizing:border-box}
     body{
-      margin:0; background:var(--bg); color:var(--text);
-      font-family: ui-sans-serif, system-ui, Segoe UI, Roboto, Arial, "Noto Sans";
-      line-height:1.55; letter-spacing:.2px;
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
       background:
         radial-gradient(1200px 800px at 20% -10%, rgba(56,189,248,.08), transparent 60%),
         radial-gradient(1200px 800px at 80% -10%, rgba(167,139,250,.08), transparent 60%),
         var(--bg);
+      color:var(--text); line-height:1.55;
     }
     a{color:var(--brand); text-decoration:none}
     a:hover{text-decoration:underline}
     .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--space-3)}
-    header{padding:18px 0; border-bottom:1px solid color-mix(in srgb, var(--muted) 22%, transparent)}
-    .crumbs a{color:var(--muted)}
-    .title{margin:18px 0 8px; font-size:28px; font-weight:800}
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px)}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: var(--space-2) 0; border-bottom:1px solid var(--line-soft);
+    }
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{width:36px;height:36px;border-radius:12px;background:conic-gradient(from 210deg,var(--brand),var(--brand-2))}
+    main{padding: var(--space-4) 0}
+    h1{margin:0 0 6px 0; font-size: clamp(26px, 4.5vw, 40px)}
     .muted{color:var(--muted)}
-    .panel{background:var(--panel); border:1px solid color-mix(in srgb, var(--muted) 18%, transparent);
-           border-radius:var(--radius); box-shadow:var(--shadow); padding:var(--space-3); margin:var(--space-4) 0}
-    .actions{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:var(--space-2)}
+
+    .hero{
+      background:var(--panel); border:1px solid var(--line-soft); border-radius:var(--radius);
+      box-shadow:var(--shadow); overflow:hidden; margin-top: var(--space-4);
+    }
+    .hero img{display:block; width:100%; aspect-ratio:16/9; object-fit:cover; border-bottom:1px solid var(--line-soft)}
+    .hero .body{padding: var(--space-3)}
     .btn{
-      display:inline-block; padding:10px 14px; border-radius:12px; color:var(--text);
-      border:1px solid color-mix(in srgb, var(--brand) 40%, white 0%);
-      background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 15%, #0b1220), #0b1220);
-      text-decoration:none;
+      display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid var(--brand);
+      background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 15%, var(--panel)), var(--panel));
+      color:var(--text);
     }
-    .embed{border-radius:var(--radius); overflow:hidden; border:1px solid color-mix(in srgb, var(--muted) 20%, transparent)}
-    iframe{width:100%; height:900px; border:0; background:#000}
-    footer{padding:28px 0; text-align:center; color:var(--muted);
-           border-top:1px solid color-mix(in srgb, var(--muted) 22%, transparent); margin-top:48px}
+
+    /* Keep the CTA above any future embeds; we are NOT embedding Kaggle here */
+    .panel{position:relative;}
+    .cta{margin:0 0 16px; position:relative; z-index:2;}
+    .cta .btn{position:relative; z-index:3; pointer-events:auto;}
   </style>
-  .btn{ /* your current button styles */ }
-
-    /* === Kaggle button stacking fix (add below) === */
-    /* Make sure nothing overlays the button */
-    .panel { position: relative; }
-    .panel .cta { margin: 0 0 16px; position: relative; z-index: 2; }
-    .panel .cta .btn { position: relative; z-index: 3; pointer-events: auto; }
-
-    /* If you embed anything below (like an iframe), keep it under the button */
-    .panel iframe, .panel .embed, .panel .preview {
-      position: relative;
-      z-index: 1;
-      display: block;
-      margin-top: 12px;
-    }
-   </style>
 </head>
 <body>
-  <header class="wrap">
-    <div class="crumbs">
-      <a href="../index.html">Home</a> · <a href="../index.html#projects">Projects</a>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <strong>Bellabeat Study (R)</strong>
+      </div>
+      <nav><a href="../index.html#projects">← Back to Projects</a></nav>
     </div>
-    <h1 class="title">Bellabeat Study (R)</h1>
-    <p class="muted">Exploratory analysis of smart-device activity and sleep data with tidyverse/ggplot2. Key insights for marketing and product focus.</p>
   </header>
 
-<main class="wrap">
-  <section class="panel">
-    <p class="cta">
-      <a class="btn"
-         href="https://www.kaggle.com/code/anastasiasergeeva/bellabeat-study-with-r"
-         target="_blank" rel="noopener noreferrer">
-        Open on Kaggle
-      </a>
-    </p>
+  <main class="wrap">
+    <h1>Bellabeat Study (R)</h1>
+    <p class="muted">Exploratory analysis of smart-device activity and sleep data with tidyverse/ggplot2. Key insights for marketing and product focus.</p>
 
-      <!-- Kaggle sometimes blocks iframes. We try to embed and show a note if blocked. -->
-      <div class="embed">
-        <iframe
-          title="Bellabeat Study (R) – Kaggle Notebook"
-          src="https://www.kaggle.com/code/anastasiasergeeva/bellabeat-study-with-r"
-          referrerpolicy="no-referrer"
-          loading="lazy">
-        </iframe>
+    <article class="hero panel">
+      <!-- Preview image hosted in your repo -->
+      <img src="../assets/projects/bellabeat_1.jpg" alt="Bellabeat analysis preview">
+
+      <div class="body">
+        <p class="cta">
+          <a class="btn"
+             href="https://www.kaggle.com/code/anastasiasergeeva/bellabeat-study-with-r"
+             target="_blank" rel="noopener noreferrer">
+            Open on Kaggle
+          </a>
+        </p>
+
+        <h2 style="margin-top:0">Overview</h2>
+        <p>
+          Cleaning, feature engineering, and exploratory plots for activity, steps, sleep, and usage.
+          Recommendations focus on engagement cohorts and notification strategy.
+        </p>
+        <ul>
+          <li>Tidyverse data prep; calendarized aggregates</li>
+          <li>Usage clustering &amp; activity correlations</li>
+          <li>Actionable insights for CRM/marketing</li>
+        </ul>
       </div>
-      <p class="muted" style="margin-top:12px">
-        If the notebook does not display here, use the button above to view it on Kaggle.
-      </p>
-    </section>
+    </article>
   </main>
 
-  <footer>
-    <div class="wrap">© <span id="year"></span> Anastasia Sergeeva</div>
+  <footer class="wrap" style="color:var(--muted); padding: var(--space-4) 0; border-top:1px solid var(--line-soft); text-align:center;">
+    © <span id="year"></span> Anastasia Sergeeva
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
