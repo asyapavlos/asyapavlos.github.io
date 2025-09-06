@@ -28,6 +28,39 @@
       --maxw: 1100px;
     }
 
+    /* Hero (single definition: photo left, text right) */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 32px;
+      padding: 40px 0 20px;
+    }
+    .hero-photo img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;          /* round shape */
+      border: 3px solid var(--line);
+      box-shadow: 0 6px 18px rgba(0,0,0,.45);
+    }
+    .hero-text { flex: 1; }
+    .hero-text h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      margin: 0;
+    }
+    .hero-text h2 {
+      font-size: clamp(20px, 3.5vw, 26px);
+      margin: 6px 0 18px;
+      font-weight: 600;
+      color: var(--brand);
+    }
+    .hero-text p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 680px;
+    }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -72,8 +105,7 @@
       border-bottom:1px solid color-mix(in srgb, var(--muted) 20%, transparent);
     }
 
-    /* Hero / About */
-    .hero{ padding: var(--space-5) 0 var(--space-4); display:grid; gap:var(--space-3); }
+    /* Optional name/subtitle helpers (unused but safe to keep) */
     .name{
       font-size: clamp(28px, 5vw, 44px);
       line-height:1.15; font-weight:800; letter-spacing:.4px;
@@ -173,22 +205,20 @@
   <!-- Main -->
   <main class="wrap">
 
-    <!-- Hero / About -->
+    <!-- Hero (serves as About anchor) -->
     <section id="about" class="hero">
-      <h1 class="name">BI Developer / Business Analyst</h1>
-      <p class="subtitle">
-        I'm Anastasia. I build reliable analytics: dimensional models, clean semantic layers, and fast dashboards.
-        Comfortable gathering requirements, documenting processes (BPMN/BRD), and aligning stakeholders on definitions and KPIs.
-        Skilled in Power BI, DAX, SQL, data governance, and performance tuning. Experience with ML and practical AI tooling.
-      </p>
-      <div class="chips">
-        <span class="chip">Power BI (Tabular, DAX)</span>
-        <span class="chip">SQL &amp; ETL/ELT</span>
-        <span class="chip">Dimensional Modeling</span>
-        <span class="chip">BPMN • BRD</span>
-        <span class="chip">KPI Governance</span>
-        <span class="chip">RLS/OLS</span>
-        <span class="chip">AI-assisted workflows</span>
+      <div class="hero-photo">
+        <img src="./assets/projects/NastyaBobby.jpg" alt="Portrait of Anastasia Sergeeva">
+      </div>
+      <div class="hero-text">
+        <h1>Anastasia Sergeeva</h1>
+        <h2>BI Developer / Business Analyst</h2>
+        <p>
+          I build reliable analytics: dimensional models, clean semantic layers, and fast dashboards.
+          Comfortable gathering requirements, documenting processes (BPMN/BRD), and aligning stakeholders on KPIs.
+          Skilled in Power BI, DAX, SQL, data governance, and performance tuning.
+          Experience with ML and practical AI tooling.
+        </p>
       </div>
     </section>
 
@@ -200,10 +230,10 @@
         <!-- Project 1 -->
         <article class="col-6">
           <div class="card">
-           <img class="thumb"
-     src="./assets/projects/retail-kpi.jpg"
-     alt="Retail KPI dashboard thumbnail"
-     loading="lazy">
+            <img class="thumb"
+                 src="./assets/projects/retail-kpi.jpg"
+                 alt="Retail KPI dashboard thumbnail"
+                 loading="lazy">
             <div class="card-body">
               <h3>Retail KPI Suite</h3>
               <p>Sales &amp; margin, stock turns, promo ROI. Star schema with conformed dimensions and SCD history.</p>
@@ -214,24 +244,22 @@
           </div>
         </article>
 
-<!-- Project 2 -->
-<article class="col-6">
-  <div class="card">
-     <img class="thumb"
-     src="./assets/projects/gross_profit_performance.jpg"
-     alt="Performance Dashboard thumbnail"
-     loading="lazy"> 
-    <div class="card-body">
-      <h3>Performance Dashboard</h3>
-      <p>Executive pack with P&amp;L, cash, and variance analysis. Calc groups and aggregations for speed.</p>
-    </div>
-    <div class="actions">
-      <a class="btn" href="projects/gross-profit-performance.html">Open case study</a>
-    </div>
-  </div>
-</article>
-
-
+        <!-- Project 2 -->
+        <article class="col-6">
+          <div class="card">
+            <img class="thumb"
+                 src="./assets/projects/gross_profit_performance.jpg"
+                 alt="Performance Dashboard thumbnail"
+                 loading="lazy">
+            <div class="card-body">
+              <h3>Performance Dashboard</h3>
+              <p>Executive pack with P&amp;L, cash, and variance analysis. Calc groups and aggregations for speed.</p>
+            </div>
+            <div class="actions">
+              <a class="btn" href="projects/gross-profit-performance.html">Open case study</a>
+            </div>
+          </div>
+        </article>
 
         <!-- Project 3 -->
         <article class="col-6">
@@ -254,7 +282,7 @@
       <hr class="sep">
       <h2 class="h2">Contact</h2>
       <p class="contact-line">
-        <a href="mailto:anastasia.sergeeva.bi@gmail.com">anastasia.sergeeva.019@gmail.com</a>
+        <a href="mailto:anastasia.sergeeva.019@gmail.com">anastasia.sergeeva.019@gmail.com</a>
         <span class="dot">•</span>
         <a href="https://www.linkedin.com/in/anastasia-sergeeva-bi/" target="_blank" rel="noopener">LinkedIn</a>
         <span class="dot">•</span>
