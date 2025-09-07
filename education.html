@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Education & Certificates – Anastasia Sergeeva</title>
+  <meta name="description" content="Education and professional certificates of Anastasia Sergeeva (BI Developer / Business Analyst)." />
+  <meta name="theme-color" content="#0f172a" />
+
+  <style>
+    :root{
+      --bg:#0f172a; --panel:#0b1220; --text:#e5e7eb; --muted:#94a3b8;
+      --brand:#38bdf8; --brand-2:#a78bfa; --line:#1e293b;
+      --line-soft: color-mix(in srgb, var(--muted) 22%, transparent);
+      --radius:18px; --radius-sm:12px; --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --space-1:10px; --space-2:16px; --space-3:24px; --space-4:32px; --space-5:48px;
+      --maxw:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+      background:
+        radial-gradient(1200px 800px at 20% -10%, rgba(56,189,248,.08), transparent 60%),
+        radial-gradient(1200px 800px at 80% -10%, rgba(167,139,250,.08), transparent 60%),
+        var(--bg);
+      color:var(--text); line-height:1.55; letter-spacing:.2px;
+    }
+
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--space-3)}
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px)}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: var(--space-2) 0; border-bottom:1px solid var(--line-soft);
+    }
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo-photo img{
+      width:70px; height:70px; object-fit:cover; border-radius:50%;
+      border:2px solid var(--line); box-shadow:0 4px 12px rgba(0,0,0,.4);
+    }
+    .brand-text{display:flex; flex-direction:column; line-height:1.2}
+    .brand-text strong{font-size:18px; font-weight:700}
+    .brand-text .profession{font-size:14px; color:var(--brand); font-weight:500}
+
+    nav ul{display:flex; gap:18px; list-style:none; padding:0; margin:0}
+    nav a{color:var(--text); opacity:.9} nav a:hover{opacity:1}
+
+    main{padding: var(--space-4) 0}
+    .page-title{font-size:26px; margin:0 0 var(--space-3)}
+    .muted{color:var(--muted)}
+
+    .section{margin: var(--space-4) 0}
+    .section h2{font-size:22px; margin:0 0 var(--space-2)}
+
+    .grid{display:grid; gap: var(--space-3); grid-template-columns: repeat(12, 1fr)}
+    .col-12{grid-column: span 12}
+    .col-6{grid-column: span 6}
+    @media (max-width: 980px){ .col-6{grid-column: span 12} }
+
+    .card{
+      position:relative;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 90%, black), var(--panel));
+      border:1px solid color-mix(in srgb, var(--muted) 20%, transparent);
+      border-radius:var(--radius); box-shadow:var(--shadow);
+      padding: var(--space-3); min-height: 120px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+    .title{ margin:0 0 6px 0; font-size:18px }
+    .meta{ margin:0 0 10px 0; color:var(--muted); font-size:14px }
+    .links{ display:flex; gap:14px; flex-wrap:wrap }
+    .chip{
+      display:inline-block; padding:6px 10px; border-radius:12px;
+      border:1px solid color-mix(in srgb, var(--brand) 35%, white 0%);
+      background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 12%, var(--panel)), var(--panel));
+      color:var(--text); text-decoration:none; font-size:14px;
+    }
+    .chip:hover{ filter:brightness(1.06) }
+
+    .panel{
+      background:var(--panel); border:1px solid color-mix(in srgb, var(--muted) 18%, transparent);
+      border-radius:var(--radius); box-shadow:var(--shadow); padding: var(--space-3);
+    }
+
+    footer{ text-align:center; color:var(--muted); padding: var(--space-4) 0; border-top:1px solid var(--line-soft) }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo-photo">
+          <img src="./assets/projects/NastyaBobby.jpg" alt="Portrait of Anastasia Sergeeva">
+        </div>
+        <div class="brand-text">
+          <strong>Anastasia Sergeeva</strong>
+          <span class="profession">BI Developer / Business Analyst</span>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1 class="page-title">Education & Certificates</h1>
+    <p class="muted">A curated list of degrees and verified certificates relevant to Business Intelligence, Analytics, and languages.</p>
+
+    <!-- Certificates – Data & Analytics -->
+    <section class="section">
+      <h2>Certificates — Data & Analytics</h2>
+      <div class="grid">
+
+        <article class="col-6"><div class="card">
+          <h3 class="title">Google Data Analytics Professional Certificate</h3>
+          <p class="meta">Google — 2021</p>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/professional-cert/9KFLADE6Q7J8" target="_blank">View certificate</a>
+          </div>
+        </div></article>
+
+        <article class="col-6"><div class="card">
+          <h3 class="title">Machine Learning Specialization</h3>
+          <p class="meta">DeepLearning.AI (Andrew Ng) — 2022</p>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/specialization/FLRXQY5EX5CB" target="_blank">View certificate</a>
+          </div>
+        </div></article>
+
+        <article class="col-6"><div class="card">
+          <h3 class="title">Modern Big Data Analysis with SQL</h3>
+          <p class="meta">Cloudera — 2020</p>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/specialization/XGHPSK8HD7Z3" target="_blank">View certificate</a>
+          </div>
+        </div></article>
+
+        <!-- ...continue adding all your other Coursera/Microsoft/Meta certs... -->
+
+        <article class="col-6"><div class="card">
+          <h3 class="title">Microsoft Power BI for Business Intelligence</h3>
+          <p class="meta">Maven Analytics — June 2025</p>
+        </div></article>
+
+      </div>
+    </section>
+
+    <!-- Certificates – Languages -->
+    <section class="section">
+      <h2>Certificates — Languages</h2>
+      <div class="grid">
+        <article class="col-6"><div class="card">
+          <h3 class="title">Goethe-Zertifikat C1</h3>
+          <p class="meta">Goethe-Institut — Athens, 2025</p>
+        </div></article>
+
+        <article class="col-6"><div class="card">
+          <h3 class="title">IELTS Academic</h3>
+          <p class="meta">British Council/IDP — March 2019</p>
+        </div></article>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section">
+      <h2>Education</h2>
+      <div class="panel">
+        <h3 class="title">MSc in Management and Economics</h3>
+        <p class="meta">St. Petersburg State University — 2009</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> Anastasia Sergeeva</div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
