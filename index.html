@@ -150,7 +150,14 @@
   border: 2px solid var(--line);
   box-shadow: 0 4px 12px rgba(0,0,0,.4);
 }
-    
+
+/* === ДОБАВЛЕНО для кликабельной карточки и заголовка === */
+.card{ position: relative; }              /* нужно для растянутой ссылки */
+.card .thumb{ cursor: pointer; }          /* курсор при наведении на картинку */
+.stretched-link{
+  position:absolute; inset:0; z-index:1;  /* растянуть ссылку на всю карточку */
+  background:transparent;
+}
   </style>
 </head>
 <body>
@@ -200,48 +207,51 @@
         <!-- Project 1 -->
         <article class="col-6">
           <div class="card">
+            <a class="stretched-link" href="projects/retail-kpi.html" aria-label="Open: Retail KPI Suite"></a>
             <img class="thumb"
                  src="./assets/projects/retail-kpi.jpg"
                  alt="Retail KPI dashboard thumbnail"
                  loading="lazy">
             <div class="card-body">
-              <h3>Retail KPI Suite</h3>
+              <h3>
+                <a href="projects/retail-kpi.html">Retail KPI Suite</a>
+              </h3>
               <p>Sales &amp; margin, stock turns, promo ROI. Star schema with conformed dimensions and SCD history.</p>
             </div>
-            <div class="actions">
-              <a class="btn" href="projects/retail-kpi.html">Open case study</a>
-            </div>
+            <!-- кнопка удалена -->
           </div>
         </article>
 
         <!-- Project 2 -->
         <article class="col-6">
           <div class="card">
+            <a class="stretched-link" href="projects/gross-profit-performance.html" aria-label="Open: Performance Dashboard"></a>
             <img class="thumb"
                  src="./assets/projects/gross_profit_performance.jpg"
                  alt="Performance Dashboard thumbnail"
                  loading="lazy">
             <div class="card-body">
-              <h3>Performance Dashboard</h3>
+              <h3>
+                <a href="projects/gross-profit-performance.html">Performance Dashboard</a>
+              </h3>
               <p>Executive pack with P&amp;L, cash, and variance analysis. Calc groups and aggregations for speed.</p>
             </div>
-            <div class="actions">
-              <a class="btn" href="projects/gross-profit-performance.html">Open case study</a>
-            </div>
+            <!-- кнопка удалена -->
           </div>
         </article>
 
         <!-- Project 3 -->
         <article class="col-6">
           <div class="card">
+            <a class="stretched-link" href="projects/bellabeat.html" aria-label="Open: Bellabeat Study (R)"></a>
             <img class="thumb" src="./assets/projects/bellabeat_1.jpg" alt="Bellabeat study in R – dashboard/plots thumbnail" loading="lazy">
             <div class="card-body">
-              <h3>Bellabeat Study (R)</h3>
+              <h3>
+                <a href="projects/bellabeat.html">Bellabeat Study (R)</a>
+              </h3>
               <p>Exploratory analysis of smart-device usage and activity patterns. Tidyverse, ggplot2, insights for marketing actions.</p>
             </div>
-            <div class="actions">
-              <a class="btn" href="projects/bellabeat.html">Open case study</a>
-            </div>
+            <!-- кнопка удалена -->
           </div>
         </article>
       </div> <!-- /.grid -->
