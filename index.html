@@ -27,12 +27,31 @@
     a:hover { text-decoration: underline; }
     .container { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--space); }
 
-    /* Header / Hero */
+    /* ===== Sticky top bar ===== */
+    .topbar{
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(11,18,32,.9); border-bottom: 1px solid var(--line-soft);
+      backdrop-filter: blur(6px);
+    }
+    .topbar-inner{
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand{ display: flex; align-items: center; gap: 10px; }
+    .brand img{ width: 38px; height: 38px; border-radius: 9999px; object-fit: cover; object-position: 50% 18%; }
+    .brand .name{ font-weight: 700; letter-spacing:.2px; }
+    .nav a{
+      margin-left: 14px; padding: 8px 10px; border-radius: 12px; color: var(--text);
+    }
+    .nav a:hover{ background: var(--chip); text-decoration: none; }
+
+    /* ===== Hero ===== */
     header { border-bottom: 1px solid var(--line-soft); }
     .hero { display: grid; grid-template-columns: 220px 1fr; gap: var(--space); align-items: center; padding: var(--space-lg) 0; }
-    .avatar { width: 220px; height: 220px; border-radius: var(--radius);
-              object-fit: cover; object-position: center 25%;
-              box-shadow: var(--shadow); background: #000; }
+    .avatar-lg{
+      width: 220px; height: 220px; border-radius: 9999px;
+      object-fit: cover; object-position: 50% 18%; /* move face up a bit */
+      box-shadow: var(--shadow); background: #000;
+    }
     .hero h1 { margin: 0 0 6px; font-size: clamp(28px, 5vw, 40px); letter-spacing: .2px; }
     .tagline { margin: 0 0 12px; font-size: clamp(16px, 2vw, 18px); color: var(--muted); }
     .intro { margin: 8px 0 14px; }
@@ -46,11 +65,12 @@
     .btn:hover { filter: brightness(1.05); text-decoration: none; }
     .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--line); box-shadow: none; }
 
+    /* ===== Sections ===== */
     section { padding: var(--space-lg) 0; }
     section h2 { margin: 0 0 16px; font-size: clamp(22px, 3.5vw, 28px); }
     .lead { color: var(--muted); }
 
-    /* Projects grid */
+    /* ===== Projects grid ===== */
     .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space); }
     .col-6 { grid-column: span 6; }
     .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
@@ -61,23 +81,41 @@
     .card-body p { margin: 0; color: var(--muted); }
     .actions { padding: 14px var(--space) 18px; margin-top: auto; }
 
-    /* Contact & Footer */
+    /* ===== Footer ===== */
     #contact { text-align: center; }
     footer { text-align: center; color: var(--muted); border-top: 1px solid var(--line-soft); padding: 18px 0 32px; }
 
+    /* ===== Responsive ===== */
     @media (max-width: 860px){
+      .topbar-inner{ height: 60px; }
       .hero { grid-template-columns: 1fr; text-align: center; }
-      .avatar { justify-self: center; }
+      .avatar-lg { justify-self: center; }
       .grid { grid-template-columns: 1fr; }
       .col-6 { grid-column: auto; }
       .actions { text-align: left; }
+      .nav a{ margin-left: 10px; }
     }
   </style>
 </head>
 <body>
+  <!-- Sticky top bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <img src="./assets/avatar.jpg" alt="Anastasia avatar">
+        <span class="name">Anastasia Sergeeva</span>
+      </div>
+      <nav class="nav" aria-label="Main">
+        <a href="#projects">Projects</a>
+        <a href="education.html">Education</a>
+      </nav>
+    </div>
+  </div>
+
   <header>
     <div class="container hero">
-      <img class="avatar" src="./assets/avatar.jpg" alt="Portrait of Anastasia Sergeeva">
+      <img class="avatar-lg" src="./assets/avatar.jpg" alt="Portrait of Anastasia Sergeeva">
+
       <div>
         <h1>Anastasia Sergeeva</h1>
         <p class="tagline">BI Developer / Business Analyst</p>
@@ -101,6 +139,7 @@
   </header>
 
   <main>
+    <!-- About -->
     <section id="about">
       <div class="container">
         <h2>About</h2>
@@ -108,11 +147,13 @@
       </div>
     </section>
 
+    <!-- Projects -->
     <section id="projects">
       <div class="container">
         <h2>Projects</h2>
 
         <div class="grid">
+          <!-- Project 1 -->
           <article class="col-6">
             <div class="card">
               <img class="thumb" src="./assets/projects/retail-kpi.jpg" alt="Retail KPI dashboard thumbnail" loading="lazy">
@@ -126,6 +167,7 @@
             </div>
           </article>
 
+          <!-- Project 2 -->
           <article class="col-6">
             <div class="card">
               <img class="thumb" src="./assets/projects/gross_profit_performance.jpg" alt="Gross profit performance dashboard thumbnail" loading="lazy">
@@ -139,6 +181,7 @@
             </div>
           </article>
 
+          <!-- Project 3 -->
           <article class="col-6">
             <div class="card">
               <img class="thumb" src="./assets/projects/bellabeat_1.jpg" alt="Bellabeat analysis thumbnail" loading="lazy">
@@ -155,6 +198,7 @@
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact">
       <div class="container">
         <h2>Contact</h2>
