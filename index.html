@@ -48,21 +48,29 @@
     .name{ font-weight: 700; letter-spacing:.2px; white-space:nowrap; font-size: 18px; }
     .role{ color: var(--muted); white-space:nowrap; font-size: 14px; }
 
+    /* Unified nav link styling (Contact included) */
     .nav { display:flex; align-items:center; gap: 8px; }
     .nav a{
-      padding: 10px 12px; border-radius: 12px; color: var(--text);
-    }
-    .nav a:hover{ background: var(--chip); text-decoration: none; }
-
-    /* Neutral contact chip */
-    .chip{
-      padding: 10px 12px; border-radius: 12px;
-      background: var(--chip);
+      display:inline-block;
+      padding: 10px 12px;
+      border-radius: 12px;
       color: var(--text);
-      border: 1px solid var(--line);
-      font-weight: 600; box-shadow: none;
+      text-decoration: none;
+      background: transparent;
+      border: 1px solid transparent;
+      transition: background .2s ease, border-color .2s ease, transform .12s ease;
+      font-weight: 500;
     }
-    .chip:hover{ background:#0e1626; text-decoration:none; }
+    .nav a:hover{
+      background: color-mix(in srgb, var(--muted) 12%, transparent);
+      border-color: var(--line-soft);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+    .nav a:focus-visible{
+      outline: 2px solid color-mix(in srgb, var(--brand) 60%, white);
+      outline-offset: 2px;
+    }
 
     /* ===== Sections ===== */
     section { padding: var(--space-lg) 0;
@@ -100,7 +108,7 @@
       .brand img{ width: 52px; height: 52px; }
       .name{ font-size: 16px; }
       .role{ font-size: 12px; }
-      .nav a, .chip{ padding: 8px 10px; }
+      .nav a{ padding: 8px 10px; }
       .grid { grid-template-columns: 1fr; }
       .col-6 { grid-column: auto; }
     }
@@ -120,10 +128,22 @@
       <nav class="nav" aria-label="Main">
         <a href="#projects">Projects</a>
         <a href="education.html">Education</a>
-        <a class="chip" href="#contact">Contact</a>
+        <a href="#contact">Contact</a> <!-- now identical styling -->
       </nav>
     </div>
   </div>
+
+  <!-- Keep your existing sections below -->
+  <!--
+  <main class="container">
+    <section id="projects">...</section>
+    <section id="contact">...</section>
+  </main>
+  <footer>...</footer>
+  -->
+
+</body>
+</html>
 
   <main>
     <!-- About me -->
