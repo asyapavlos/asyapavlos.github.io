@@ -39,13 +39,13 @@
     }
     .brand{ display: flex; align-items: center; gap: 14px; min-width: 0; }
     .brand img{
-      width: 56px; height: 56px; border-radius: 9999px; /* round */
+      width: 64px; height: 64px; border-radius: 9999px; /* round */
       object-fit: cover; object-position: 50% 18%; /* nudge face up */
       box-shadow: 0 2px 10px rgba(0,0,0,.35);
       border: 1px solid var(--line); background:#000; flex: 0 0 auto;
     }
     .id { display:flex; flex-direction:column; line-height:1.15; }
-    .name{ font-weight: 700; letter-spacing:.2px; white-space:nowrap; font-size: 17px; }
+    .name{ font-weight: 700; letter-spacing:.2px; white-space:nowrap; font-size: 18px; }
     .role{ color: var(--muted); white-space:nowrap; font-size: 14px; }
 
     .nav { display:flex; align-items:center; gap: 8px; }
@@ -53,18 +53,23 @@
       padding: 10px 12px; border-radius: 12px; color: var(--text);
     }
     .nav a:hover{ background: var(--chip); text-decoration: none; }
-    .btn{
-      padding: 10px 14px; border-radius: 12px;
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      color:#081018; font-weight:600; border:0; box-shadow: var(--shadow);
+
+    /* Neutral contact chip (no blue gradient) */
+    .chip{
+      padding: 10px 12px; border-radius: 12px;
+      background: var(--chip);
+      color: var(--text);
+      border: 1px solid var(--line);
+      font-weight: 600;
+      box-shadow: none;
     }
-    .btn:hover{ filter: brightness(1.05); text-decoration:none; }
+    .chip:hover{ filter: none; text-decoration: none; background: #0e1626; }
 
     /* ===== Sections ===== */
     section { padding: var(--space-lg) 0;
-      scroll-margin-top: calc(var(--topbar-h) + 10px); /* account for taller bar */
+      scroll-margin-top: calc(var(--topbar-h) + 10px);
     }
-    .lead { color: var(--muted); }
+    .lead { color: var(--muted); font-size: 17px; }
 
     /* ===== Projects grid & cards (image-clickable) ===== */
     .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space); }
@@ -91,13 +96,12 @@
 
     /* ===== Responsive ===== */
     @media (max-width: 860px){
-      :root{ --topbar-h: 72px; } /* still taller than before on mobile */
+      :root{ --topbar-h: 72px; }
       .topbar-inner{ height: var(--topbar-h); }
-      .brand img{ width: 48px; height: 48px; }
-      .name{ font-size: 15px; }
+      .brand img{ width: 52px; height: 52px; }
+      .name{ font-size: 16px; }
       .role{ font-size: 12px; }
-      .nav a{ padding: 8px 10px; }
-      .btn{ padding: 8px 12px; }
+      .nav a, .chip{ padding: 8px 10px; }
       .grid { grid-template-columns: 1fr; }
       .col-6 { grid-column: auto; }
     }
@@ -108,7 +112,8 @@
   <div class="topbar">
     <div class="container topbar-inner">
       <div class="brand">
-        <img src="./assets/avatar.jpg" alt="Anastasia Sergeeva">
+        <!-- Use an absolute-like path (no leading ./) to avoid GitHub Pages path issues -->
+        <img src="assets/avatar.jpg" alt="Anastasia Sergeeva">
         <div class="id">
           <span class="name">Anastasia Sergeeva</span>
           <span class="role">BI Developer / Business Analyst</span>
@@ -117,18 +122,21 @@
       <nav class="nav" aria-label="Main">
         <a href="#projects">Projects</a>
         <a href="education.html">Education</a>
-        <a class="btn" href="#contact">Contact</a>
+        <a class="chip" href="#contact">Contact</a>
       </nav>
     </div>
   </div>
 
   <main>
-    <!-- Intro paragraph (no heading) -->
+    <!-- About me (no heading) -->
     <section>
       <div class="container">
         <p class="lead">
-          I design pragmatic BI solutions that turn business questions into clear dashboards and reliable, governed data models.
-          End-to-end from requirements and KPI definitions to tabular models and clean DAX.
+          I build pragmatic BI solutions that business users actually adopt. My focus is clean data models (star schemas,
+          conformed dimensions, SCD history), reliable KPI definitions, and clear visuals in Power BI. I bridge business
+          and tech through structured requirements, workshops, and BPMN/BRD documentation; then deliver tabular models,
+          robust DAX, and performance-aware datasets. Comfortable across SQL and data preparation, I keep governance,
+          security (RLS/OLS), and usability front and center — so leaders get one trusted version of the truth.
         </p>
       </div>
     </section>
@@ -143,7 +151,7 @@
           <article class="col-6">
             <a class="card" href="projects/retail-kpi.html" aria-label="Open Retail KPI Suite case study">
               <div class="thumb-wrap">
-                <img class="thumb" src="./assets/projects/retail-kpi.jpg" alt="Retail KPI dashboard thumbnail" loading="lazy">
+                <img class="thumb" src="assets/projects/retail-kpi.jpg" alt="Retail KPI dashboard thumbnail" loading="lazy">
               </div>
               <div class="card-body">
                 <h3>Retail KPI Suite</h3>
@@ -156,7 +164,7 @@
           <article class="col-6">
             <a class="card" href="projects/gross-profit-performance.html" aria-label="Open CFO Pack: Gross Profit case study">
               <div class="thumb-wrap">
-                <img class="thumb" src="./assets/projects/gross_profit_performance.jpg" alt="Gross profit performance dashboard thumbnail" loading="lazy">
+                <img class="thumb" src="assets/projects/gross_profit_performance.jpg" alt="Gross profit performance dashboard thumbnail" loading="lazy">
               </div>
               <div class="card-body">
                 <h3>CFO Pack: Gross Profit</h3>
@@ -169,7 +177,7 @@
           <article class="col-6">
             <a class="card" href="projects/bellabeat.html" aria-label="Open Bellabeat – Wearables Study case study">
               <div class="thumb-wrap">
-                <img class="thumb" src="./assets/projects/bellabeat_1.jpg" alt="Bellabeat analysis thumbnail" loading="lazy">
+                <img class="thumb" src="assets/projects/bellabeat_1.jpg" alt="Bellabeat analysis thumbnail" loading="lazy">
               </div>
               <div class="card-body">
                 <h3>Bellabeat – Wearables Study</h3>
@@ -185,7 +193,9 @@
     <section id="contact">
       <div class="container">
         <h2>Contact</h2>
-        <p>Feel free to reach out: <a href="mailto:anastasia.sergeeva.019@gmail.com">anastasia.sergeeva.019@gmail.com</a></p>
+        <p>
+          Email: <a href="mailto:anastasia.sergeeva.019@gmail.com">anastasia.sergeeva.019@gmail.com</a>
+        </p>
       </div>
     </section>
   </main>
