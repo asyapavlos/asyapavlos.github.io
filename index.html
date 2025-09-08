@@ -3,166 +3,49 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anastasia Sergeeva – BI / BA Portfolio</title>
-  <meta name="description" content="Portfolio of Anastasia Sergeeva – BI Developer / Business Analyst. Power BI, SQL, semantic modeling, KPI governance, BPMN & BRD templates." />
+  <title>Education & Certificates – Anastasia Sergeeva</title>
+  <meta name="description" content="Education and professional certificates of Anastasia Sergeeva (BI Developer / Business Analyst)." />
   <meta name="theme-color" content="#0f172a" />
-
   <style>
     :root{
-      --bg:#0f172a;
-      --panel:#0b1220;
-      --text:#e5e7eb;
-      --muted:#94a3b8;
-      --brand:#38bdf8;
-      --brand-2:#a78bfa;
-      --line:#1e293b;
-      --line-soft: color-mix(in srgb, var(--muted) 22%, transparent);
-      --radius:18px;
-      --radius-sm:12px;
-      --shadow: 0 12px 30px rgba(0,0,0,.35);
-      --space-1: 10px;
-      --space-2: 16px;
-      --space-3: 24px;
-      --space-4: 32px;
-      --space-5: 48px;
-      --maxw: 1100px;
+      --bg:#0f172a; --panel:#0b1220; --text:#e5e7eb; --muted:#94a3b8;
+      --brand:#38bdf8; --line:#1e293b; --line-soft: color-mix(in srgb, var(--muted) 22%, transparent);
+      --maxw:1100px; --space-2:16px; --space-3:24px; --space-4:32px;
     }
-
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
-      background:
-        radial-gradient(1200px 800px at 20% -10%, rgba(56,189,248,.08), transparent 60%),
-        radial-gradient(1200px 800px at 80% -10%, rgba(167,139,250,.08), transparent 60%),
-        var(--bg);
-      color:var(--text);
-      line-height:1.55;
-      letter-spacing:.2px;
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: var(--bg); color:var(--text); line-height:1.55;
     }
-
     a{color:var(--brand); text-decoration:none}
     a:hover{text-decoration:underline}
 
     .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--space-3)}
     header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px)}
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding: var(--space-2) 0;
-      border-bottom:1px solid var(--line-soft);
-    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding: var(--space-2) 0; border-bottom:1px solid var(--line-soft)}
     .brand{display:flex; gap:12px; align-items:center}
-    .logo-photo img{
-      width:70px;
-      height:70px;
-      object-fit:cover;
-      border-radius:50%;
-      border:2px solid var(--line);
-      box-shadow:0 4px 12px rgba(0,0,0,.4);
-    }
-    .brand-text{
-      display:flex;
-      flex-direction:column;
-      line-height:1.2;
-    }
-    .brand-text strong{
-      font-size:18px;
-      font-weight:700;
-    }
-    .brand-text .profession{
-      font-size:14px;
-      color:var(--brand);
-      font-weight:500;
-    }
-    .nav ul{display:flex; gap:18px; list-style:none; padding:0; margin:0}
-    .nav a{color:var(--text); opacity:.9}
-    .nav a:hover{opacity:1}
+    .logo-photo img{width:70px; height:70px; object-fit:cover; border-radius:50%; border:2px solid var(--line)}
+    .brand-text{display:flex; flex-direction:column; line-height:1.2}
+    .brand-text strong{font-size:18px; font-weight:700}
+    .brand-text .profession{font-size:14px; color:var(--brand)}
 
-    .thumb{
-      aspect-ratio: 16/9;
-      width:100%;
-      object-fit:cover;
-      display:block;
-      border-bottom:1px solid color-mix(in srgb, var(--muted) 20%, transparent);
-    }
+    nav ul{display:flex; gap:18px; list-style:none; padding:0; margin:0}
+    nav a{color:var(--text); opacity:.9} nav a:hover{opacity:1}
 
-    .hero {
-      padding: 40px 0 20px;
-    }
-    .hero-text p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 680px;
-    }
+    main{padding: var(--space-4) 0}
+    h1{font-size:26px; margin:0 0 var(--space-3)}
+    .section{margin: var(--space-4) 0}
+    .section h2{font-size:22px; margin:0 0 var(--space-2)}
+    .section h3{font-size:18px; margin: 12px 0}
+    ul.plain{list-style:none; padding:0; margin:0}
+    ul.plain li{margin:0 0 10px 0}
+    .muted{color:var(--muted); font-size:14px}
 
-    section{padding: var(--space-4) 0}
-    .panel{
-      background:var(--panel); border:1px solid color-mix(in srgb, var(--muted) 18%, transparent);
-      border-radius:var(--radius); box-shadow:var(--shadow);
-      padding: var(--space-3);
-    }
-    .section-title{ margin:0 0 var(--space-3) 0; font-size:22px; letter-spacing:.3px }
-    .muted{color:var(--muted)}
-
-    .grid{ display:grid; gap: var(--space-3); grid-template-columns: repeat(12, 1fr); }
-    .col-12{grid-column: span 12}
-    .col-6{grid-column: span 6}
-    .col-4{grid-column: span 4}
-    @media (max-width: 980px){
-      .col-6,.col-4{grid-column: span 12}
-    }
-
-    .card{
-      background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 90%, black), var(--panel));
-      border:1px solid color-mix(in srgb, var(--muted) 20%, transparent);
-      border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);
-      display:flex; flex-direction:column; min-height:100%;
-    }
-    .card-body{padding:18px}
-    .card h3{margin:0 0 8px 0; font-size:18px}
-    .card p{margin:0 0 12px 0; color:var(--muted)}
-    .card .actions{margin-top:auto; padding:0 18px 18px}
-    .btn{
-      display:inline-block; padding:10px 14px; border-radius:12px;
-      border:1px solid color-mix(in srgb, var(--brand) 40%, white 0%);
-      background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 15%, var(--panel)), var(--panel));
-      color:var(--text); text-decoration:none;
-    }
-    .btn:hover{filter:brightness(1.08)}
-
-    hr.sep{border:0; border-top:1px solid var(--line-soft); margin:28px 0}
-    #contact{ text-align:center; padding: 20px 0 10px; }
-    #contact .h2{ font-size: clamp(20px, 2.2vw, 26px); margin: 0 0 10px; color: var(--text); }
-    #contact .contact-line{ margin:0 auto; max-width:900px; font-size: clamp(14px, 1.6vw, 16px); color: var(--muted); }
-    #contact a{ color: var(--text); text-decoration:none; border-bottom:1px solid var(--line-soft); }
-    #contact a:hover{ color: var(--brand); border-color: var(--brand); }
-    #contact .dot{ display:inline-block; margin: 0 10px; color: var(--muted); }
-
-    footer{ text-align:center; color:var(--muted); padding: var(--space-4) 0; border-top:1px solid var(--line-soft); }
-    
-.logo-photo img {
-  width: 100px;         /* larger, shows more of face */
-  height: 100px;
-  object-fit: cover;
-  object-position: top center;   /* shift focus to the face */
-  border-radius: 50%;
-  border: 2px solid var(--line);
-  box-shadow: 0 4px 12px rgba(0,0,0,.4);
-}
-
-/* === ДОБАВЛЕНО для кликабельной карточки и заголовка === */
-.card{ position: relative; }              /* нужно для растянутой ссылки */
-.card .thumb{ cursor: pointer; }          /* курсор при наведении на картинку */
-.stretched-link{
-  position:absolute; inset:0; z-index:1;  /* растянуть ссылку на всю карточку */
-  background:transparent;
-}
+    footer{ text-align:center; color:var(--muted); padding: var(--space-4) 0; border-top:1px solid var(--line-soft) }
   </style>
 </head>
 <body>
 
-  <!-- Top Nav -->
   <header>
     <div class="wrap nav">
       <div class="brand">
@@ -176,111 +59,69 @@
       </div>
       <nav>
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="education.html">Education</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Main -->
   <main class="wrap">
+    <h1>Education & Certificates</h1>
 
-    <!-- Hero -->
-    <section id="about" class="hero">
-      <div class="hero-text">
-        <p>
-          I build reliable analytics: dimensional models, clean semantic layers, and fast dashboards.
-          Comfortable gathering requirements, documenting processes (BPMN/BRD), and aligning stakeholders on KPIs.
-          Skilled in Power BI, DAX, SQL, data governance, and performance tuning.
-          Experience with ML and practical AI tooling.
-        </p>
-      </div>
+    <!-- Data & Analytics -->
+    <section id="certificates" class="section">
+      <h2>Certificates — Data & Analytics</h2>
+
+      <!-- First block: Specializations + key Power BI cert -->
+      <h3>Specializations & Key Certificates</h3>
+      <ul class="plain">
+        <li><strong><a href="https://coursera.org/verify/professional-cert/9KFLADE6Q7J8" target="_blank" rel="noopener">Google Data Analytics Professional Certificate</a></strong> — Google, 2021</li>
+        <li><strong><a href="https://coursera.org/verify/specialization/FLRXQY5EX5CB" target="_blank" rel="noopener">Machine Learning Specialization</a></strong> — DeepLearning.AI (Andrew Ng), 2022</li>
+        <li><strong><a href="https://coursera.org/verify/specialization/XGHPSK8HD7Z3" target="_blank" rel="noopener">Modern Big Data Analysis with SQL (Specialization)</a></strong> — Cloudera, 2020</li>
+        <li><strong>Microsoft Power BI for Business Intelligence</strong> — Maven Analytics, June 2025</li>
+      </ul>
+
+      <!-- Then: all other certs, newest -> oldest -->
+      <h3>Other Certificates</h3>
+      <ul class="plain">
+        <li><a href="https://coursera.org/verify/45UC2X5LCPT8" target="_blank" rel="noopener">Data Modeling in Power BI</a> — Microsoft, 2024</li>
+        <li><a href="https://coursera.org/verify/KEJJ75VJHD39" target="_blank" rel="noopener">Extract, Transform and Load Data in Power BI</a> — Microsoft, 2024</li>
+
+        <li><a href="https://coursera.org/verify/8D9CLQFU4DR7" target="_blank" rel="noopener">Advanced Topics and Future Trends in Database Technologies</a> — University of Colorado Boulder, 2023</li>
+        <li><a href="https://coursera.org/verify/RP8EAMYGJA56" target="_blank" rel="noopener">Database Structures and Management with MySQL</a> — Meta, 2023</li>
+        <li><a href="https://coursera.org/verify/GH4ZXNFM9D5A" target="_blank" rel="noopener">The Path to Insights: Data Models and Pipelines</a> — Google, 2023</li>
+
+        <li><a href="https://coursera.org/verify/6FZ253X5Q7TW" target="_blank" rel="noopener">Requirements Gathering for Secure Software Development</a> — University of Colorado System, 2022</li>
+
+        <li><a href="https://coursera.org/verify/A2F8HPD9NAHT" target="_blank" rel="noopener">Microsoft Azure for Data Engineering</a> — Microsoft, 2021</li>
+        <li><a href="https://coursera.org/verify/NN6NLRMMY43V" target="_blank" rel="noopener">Probability and Statistics: To p or not to p?</a> — University of London, 2021</li>
+
+        <li><a href="https://coursera.org/verify/YTPM28D9TTGB" target="_blank" rel="noopener">R Programming</a> — Johns Hopkins University, 2020</li>
+      </ul>
     </section>
 
-    <!-- Projects -->
-    <section id="projects">
-      <h2 class="section-title">Projects</h2>
-
-      <div class="grid">
-        <!-- Project 1 -->
-        <article class="col-6">
-          <div class="card">
-            <a class="stretched-link" href="projects/retail-kpi.html" aria-label="Open: Retail KPI Suite"></a>
-            <img class="thumb"
-                 src="./assets/projects/retail-kpi.jpg"
-                 alt="Retail KPI dashboard thumbnail"
-                 loading="lazy">
-            <div class="card-body">
-              <h3>
-                <a href="projects/retail-kpi.html">Retail KPI Suite</a>
-              </h3>
-              <p>Sales &amp; margin, stock turns, promo ROI. Star schema with conformed dimensions and SCD history.</p>
-            </div>
-            <!-- кнопка удалена -->
-          </div>
-        </article>
-
-        <!-- Project 2 -->
-        <article class="col-6">
-          <div class="card">
-            <a class="stretched-link" href="projects/gross-profit-performance.html" aria-label="Open: Performance Dashboard"></a>
-            <img class="thumb"
-                 src="./assets/projects/gross_profit_performance.jpg"
-                 alt="Performance Dashboard thumbnail"
-                 loading="lazy">
-            <div class="card-body">
-              <h3>
-                <a href="projects/gross-profit-performance.html">Performance Dashboard</a>
-              </h3>
-              <p>Executive pack with P&amp;L, cash, and variance analysis. Calc groups and aggregations for speed.</p>
-            </div>
-            <!-- кнопка удалена -->
-          </div>
-        </article>
-
-        <!-- Project 3 -->
-        <article class="col-6">
-          <div class="card">
-            <a class="stretched-link" href="projects/bellabeat.html" aria-label="Open: Bellabeat Study (R)"></a>
-            <img class="thumb" src="./assets/projects/bellabeat_1.jpg" alt="Bellabeat study in R – dashboard/plots thumbnail" loading="lazy">
-            <div class="card-body">
-              <h3>
-                <a href="projects/bellabeat.html">Bellabeat Study (R)</a>
-              </h3>
-              <p>Exploratory analysis of smart-device usage and activity patterns. Tidyverse, ggplot2, insights for marketing actions.</p>
-            </div>
-            <!-- кнопка удалена -->
-          </div>
-        </article>
-      </div> <!-- /.grid -->
+    <!-- Languages -->
+    <section id="languages" class="section">
+      <h2>Certificates — Languages</h2>
+      <ul class="plain">
+        <li><strong>Goethe-Zertifikat C1 (Deutsch)</strong> — Goethe-Institut, Athens, 2025</li>
+        <li><strong>IELTS Academic (English)</strong> — British Council/IDP, March 2019</li>
+      </ul>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
-      <hr class="sep">
-      <h2 class="h2">Contact</h2>
-      <p class="contact-line">
-        <a href="mailto:anastasia.sergeeva.019@gmail.com">anastasia.sergeeva.019@gmail.com</a>
-        <span class="dot">•</span>
-        <a href="https://www.linkedin.com/in/anastasia-sergeeva-bi/" target="_blank" rel="noopener">LinkedIn</a>
-        <span class="dot">•</span>
-        <a href="https://github.com/asyapavlos" target="_blank" rel="noopener">GitHub</a>
-      </p>
+    <!-- Education -->
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <ul class="plain">
+        <li><strong>MSc in Management and Economics</strong> — St. Petersburg State University, 2009</li>
+      </ul>
     </section>
-
   </main>
 
   <footer>
-    <div class="wrap">
-      © <span id="year"></span> Anastasia Sergeeva
-    </div>
+    <div class="wrap">© <span id="year"></span> Anastasia Sergeeva</div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
