@@ -10,9 +10,9 @@
   <style>
     :root{
       --bg:#0f172a; --panel:#0b1220; --text:#e5e7eb; --muted:#94a3b8;
-      --brand:#38bdf8; --brand-2:#a78bfa; --line:#1e293b;
+      --brand:#38bdf8; --line:#1e293b;
       --line-soft: color-mix(in srgb, var(--muted) 22%, transparent);
-      --radius:18px; --radius-sm:12px; --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:18px; --shadow: 0 12px 30px rgba(0,0,0,.35);
       --space-1:10px; --space-2:16px; --space-3:24px; --space-4:32px; --space-5:48px;
       --maxw:1100px;
     }
@@ -22,10 +22,7 @@
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
-      background:
-        radial-gradient(1200px 800px at 20% -10%, rgba(56,189,248,.08), transparent 60%),
-        radial-gradient(1200px 800px at 80% -10%, rgba(167,139,250,.08), transparent 60%),
-        var(--bg);
+      background: var(--bg);  /* one-toned background */
       color:var(--text); line-height:1.55; letter-spacing:.2px;
     }
 
@@ -68,18 +65,15 @@
     .item-title{margin:0; font-size:16px; font-weight:600}
     .item-meta{margin:4px 0 0 0; color:var(--muted); font-size:14px}
     .links{display:flex; gap:12px; align-items:center}
+
+    /* Minimal chip (kept single-toned) */
     .chip{
       display:inline-block; padding:6px 10px; border-radius:12px;
       border:1px solid color-mix(in srgb, var(--brand) 35%, white 0%);
-      background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 12%, var(--panel)), var(--panel));
+      background: var(--panel);
       color:var(--text); text-decoration:none; font-size:14px;
     }
     .chip:hover{filter:brightness(1.06)}
-
-    .panel{
-      background:var(--panel); border:1px solid color-mix(in srgb, var(--muted) 18%, transparent);
-      border-radius:var(--radius); box-shadow:var(--shadow); padding: var(--space-3);
-    }
 
     footer{ text-align:center; color:var(--muted); padding: var(--space-4) 0; border-top:1px solid var(--line-soft) }
   </style>
@@ -91,7 +85,7 @@
       <div class="brand">
         <div class="logo-photo">
           <!-- Same photo as on the home page -->
-          <img src="assets/projects/avatar.jpg" alt="Portrait of Anastasia Sergeeva">
+          <img src="assets/avatar.jpg" alt="Portrait of Anastasia Sergeeva">
         </div>
         <div class="brand-text">
           <strong>Anastasia Sergeeva</strong>
@@ -108,11 +102,33 @@
 
   <main class="wrap">
     <!-- Certificates — Data & Analytics -->
-    <!-- Group 1: Specializations + Power BI (newest first) -->
     <section class="section">
       <h2>Certificates — Data & Analytics</h2>
 
+      <!-- 1) Specializations (newest → oldest) -->
       <ul class="flat-list">
+        <li>
+          <div class="item-main">
+            <p class="item-title">Machine Learning Specialization</p>
+            <p class="item-meta">DeepLearning.AI (Andrew Ng) — 2022</p>
+          </div>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/specialization/FLRXQY5EX5CB" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </li>
+        <li>
+          <div class="item-main">
+            <p class="item-title">Modern Big Data Analysis with SQL (Specialization)</p>
+            <p class="item-meta">Cloudera — 2020</p>
+          </div>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/specialization/XGHPSK8HD7Z3" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </li>
+      </ul>
+
+      <!-- 2) Power BI (newest → oldest) -->
+      <ul class="flat-list" style="margin-top:12px">
         <li>
           <div class="item-main">
             <p class="item-title">Microsoft Power BI for Business Intelligence</p>
@@ -137,27 +153,9 @@
             <a class="chip" href="https://coursera.org/verify/KEJJ75VJHD39" target="_blank" rel="noopener">View certificate</a>
           </div>
         </li>
-        <li>
-          <div class="item-main">
-            <p class="item-title">Machine Learning Specialization</p>
-            <p class="item-meta">DeepLearning.AI (Andrew Ng) — 2022</p>
-          </div>
-          <div class="links">
-            <a class="chip" href="https://coursera.org/verify/specialization/FLRXQY5EX5CB" target="_blank" rel="noopener">View certificate</a>
-          </div>
-        </li>
-        <li>
-          <div class="item-main">
-            <p class="item-title">Modern Big Data Analysis with SQL (Specialization)</p>
-            <p class="item-meta">Cloudera — 2020</p>
-          </div>
-          <div class="links">
-            <a class="chip" href="https://coursera.org/verify/specialization/XGHPSK8HD7Z3" target="_blank" rel="noopener">View certificate</a>
-          </div>
-        </li>
       </ul>
 
-      <!-- Group 2: Others (newest first) -->
+      <!-- 3) Other Courses (newest → oldest) -->
       <ul class="flat-list" style="margin-top:12px">
         <li>
           <div class="item-main">
@@ -225,7 +223,7 @@
       </ul>
     </section>
 
-    <!-- Certificates — Languages -->
+    <!-- Languages -->
     <section class="section">
       <h2>Certificates — Languages</h2>
       <ul class="flat-list">
@@ -244,13 +242,17 @@
       </ul>
     </section>
 
-    <!-- Education -->
+    <!-- Education (same flat list style, no card) -->
     <section class="section">
       <h2>Education</h2>
-      <div class="panel">
-        <h3 class="item-title">MSc in Management and Economics</h3>
-        <p class="item-meta">St. Petersburg State University — 2009</p>
-      </div>
+      <ul class="flat-list">
+        <li>
+          <div class="item-main">
+            <p class="item-title">MSc in Management and Economics</p>
+            <p class="item-meta">St. Petersburg State University — 2009</p>
+          </div>
+        </li>
+      </ul>
     </section>
   </main>
 
@@ -261,4 +263,3 @@
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
-
