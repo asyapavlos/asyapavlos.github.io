@@ -51,36 +51,30 @@
     nav a{color:var(--text); opacity:.9} nav a:hover{opacity:1}
 
     main{padding: var(--space-4) 0}
-    .page-title{font-size:26px; margin:0 0 var(--space-3)}
-    .muted{color:var(--muted)}
 
     .section{margin: var(--space-4) 0}
     .section h2{font-size:22px; margin:0 0 var(--space-2)}
 
-    .grid{display:grid; gap: var(--space-3); grid-template-columns: repeat(12, 1fr)}
-    .col-12{grid-column: span 12}
-    .col-6{grid-column: span 6}
-    @media (max-width: 980px){ .col-6{grid-column: span 12} }
-
-    .card{
-      position:relative;
-      background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 90%, black), var(--panel));
-      border:1px solid color-mix(in srgb, var(--muted) 20%, transparent);
-      border-radius:var(--radius); box-shadow:var(--shadow);
-      padding: var(--space-3); min-height: 120px;
-      transition: transform .2s ease, box-shadow .2s ease;
+    /* Flat list (no cards) */
+    .flat-list{list-style:none; padding:0; margin:0}
+    .flat-list li{
+      padding:12px 0;
+      border-bottom:1px solid var(--line-soft);
+      display:flex; align-items:flex-start; justify-content:space-between; gap:16px;
+      flex-wrap:wrap;
     }
-    .card:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.25); }
-    .title{ margin:0 0 6px 0; font-size:18px }
-    .meta{ margin:0 0 10px 0; color:var(--muted); font-size:14px }
-    .links{ display:flex; gap:14px; flex-wrap:wrap }
+    .flat-list li:last-child{border-bottom:0}
+    .item-main{min-width:260px}
+    .item-title{margin:0; font-size:16px; font-weight:600}
+    .item-meta{margin:4px 0 0 0; color:var(--muted); font-size:14px}
+    .links{display:flex; gap:12px; align-items:center}
     .chip{
       display:inline-block; padding:6px 10px; border-radius:12px;
       border:1px solid color-mix(in srgb, var(--brand) 35%, white 0%);
       background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 12%, var(--panel)), var(--panel));
       color:var(--text); text-decoration:none; font-size:14px;
     }
-    .chip:hover{ filter:brightness(1.06) }
+    .chip:hover{filter:brightness(1.06)}
 
     .panel{
       background:var(--panel); border:1px solid color-mix(in srgb, var(--muted) 18%, transparent);
@@ -96,7 +90,8 @@
     <div class="wrap nav">
       <div class="brand">
         <div class="logo-photo">
-          <img src="./assets/projects/NastyaBobby.jpg" alt="Portrait of Anastasia Sergeeva">
+          <!-- Same photo as on the home page -->
+          <img src="assets/avatar.jpg" alt="Portrait of Anastasia Sergeeva">
         </div>
         <div class="brand-text">
           <strong>Anastasia Sergeeva</strong>
@@ -112,70 +107,149 @@
   </header>
 
   <main class="wrap">
-    <h1 class="page-title">Education & Certificates</h1>
-    <p class="muted">A curated list of degrees and verified certificates relevant to Business Intelligence, Analytics, and languages.</p>
-
-    <!-- Certificates – Data & Analytics -->
+    <!-- Certificates — Data & Analytics -->
+    <!-- Group 1: Specializations + Power BI (newest first) -->
     <section class="section">
       <h2>Certificates — Data & Analytics</h2>
-      <div class="grid">
 
-        <article class="col-6"><div class="card">
-          <h3 class="title">Google Data Analytics Professional Certificate</h3>
-          <p class="meta">Google — 2021</p>
-          <div class="links">
-            <a class="chip" href="https://coursera.org/verify/professional-cert/9KFLADE6Q7J8" target="_blank">View certificate</a>
+      <ul class="flat-list">
+        <li>
+          <div class="item-main">
+            <p class="item-title">Microsoft Power BI for Business Intelligence</p>
+            <p class="item-meta">Maven Analytics — June 2025</p>
           </div>
-        </div></article>
-
-        <article class="col-6"><div class="card">
-          <h3 class="title">Machine Learning Specialization</h3>
-          <p class="meta">DeepLearning.AI (Andrew Ng) — 2022</p>
-          <div class="links">
-            <a class="chip" href="https://coursera.org/verify/specialization/FLRXQY5EX5CB" target="_blank">View certificate</a>
+        </li>
+        <li>
+          <div class="item-main">
+            <p class="item-title">Data Modeling in Power BI</p>
+            <p class="item-meta">Microsoft (Coursera) — May 20, 2024</p>
           </div>
-        </div></article>
-
-        <article class="col-6"><div class="card">
-          <h3 class="title">Modern Big Data Analysis with SQL</h3>
-          <p class="meta">Cloudera — 2020</p>
           <div class="links">
-            <a class="chip" href="https://coursera.org/verify/specialization/XGHPSK8HD7Z3" target="_blank">View certificate</a>
+            <a class="chip" href="https://coursera.org/verify/45UC2X5LCPT8" target="_blank" rel="noopener">View certificate</a>
           </div>
-        </div></article>
+        </li>
+        <li>
+          <div class="item-main">
+            <p class="item-title">Extract, Transform and Load Data in Power BI</p>
+            <p class="item-meta">Microsoft (Coursera) — March 21, 2024</p>
+          </div>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/KEJJ75VJHD39" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </li>
+        <li>
+          <div class="item-main">
+            <p class="item-title">Machine Learning Specialization</p>
+            <p class="item-meta">DeepLearning.AI (Andrew Ng) — 2022</p>
+          </div>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/specialization/FLRXQY5EX5CB" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </li>
+        <li>
+          <div class="item-main">
+            <p class="item-title">Modern Big Data Analysis with SQL (Specialization)</p>
+            <p class="item-meta">Cloudera — 2020</p>
+          </div>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/specialization/XGHPSK8HD7Z3" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </li>
+      </ul>
 
-        <!-- ...continue adding all your other Coursera/Microsoft/Meta certs... -->
-
-        <article class="col-6"><div class="card">
-          <h3 class="title">Microsoft Power BI for Business Intelligence</h3>
-          <p class="meta">Maven Analytics — June 2025</p>
-        </div></article>
-
-      </div>
+      <!-- Group 2: Others (newest first) -->
+      <ul class="flat-list" style="margin-top:12px">
+        <li>
+          <div class="item-main">
+            <p class="item-title">Database Structures and Management with MySQL</p>
+            <p class="item-meta">Meta (Coursera) — December 14, 2023</p>
+          </div>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/RP8EAMYGJA56" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </li>
+        <li>
+          <div class="item-main">
+            <p class="item-title">The Path to Insights: Data Models and Pipelines</p>
+            <p class="item-meta">Google (Coursera) — August 6, 2023</p>
+          </div>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/GH4ZXNFM9D5A" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </li>
+        <li>
+          <div class="item-main">
+            <p class="item-title">Advanced Topics and Future Trends in Database Technologies</p>
+            <p class="item-meta">University of Colorado Boulder (Coursera) — June 16, 2023</p>
+          </div>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/8D9CLQFU4DR7" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </li>
+        <li>
+          <div class="item-main">
+            <p class="item-title">Microsoft Azure for Data Engineering</p>
+            <p class="item-meta">Microsoft (Coursera) — November 19, 2021</p>
+          </div>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/A2F8HPD9NAHT" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </li>
+        <li>
+          <div class="item-main">
+            <p class="item-title">Probability and Statistics: To p or not to p?</p>
+            <p class="item-meta">University of London (Coursera) — May 23, 2021</p>
+          </div>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/NN6NLRMMY43V" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </li>
+        <li>
+          <div class="item-main">
+            <p class="item-title">Google Data Analytics Professional Certificate</p>
+            <p class="item-meta">Google — 2021</p>
+          </div>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/professional-cert/9KFLADE6Q7J8" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </li>
+        <li>
+          <div class="item-main">
+            <p class="item-title">R Programming</p>
+            <p class="item-meta">Johns Hopkins University (Coursera) — October 3, 2020</p>
+          </div>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/YTPM28D9TTGB" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </li>
+      </ul>
     </section>
 
-    <!-- Certificates – Languages -->
+    <!-- Certificates — Languages -->
     <section class="section">
       <h2>Certificates — Languages</h2>
-      <div class="grid">
-        <article class="col-6"><div class="card">
-          <h3 class="title">Goethe-Zertifikat C1</h3>
-          <p class="meta">Goethe-Institut — Athens, 2025</p>
-        </div></article>
-
-        <article class="col-6"><div class="card">
-          <h3 class="title">IELTS Academic</h3>
-          <p class="meta">British Council/IDP — March 2019</p>
-        </div></article>
-      </div>
+      <ul class="flat-list">
+        <li>
+          <div class="item-main">
+            <p class="item-title">Goethe-Zertifikat C1</p>
+            <p class="item-meta">Goethe-Institut — Athens, 2025</p>
+          </div>
+        </li>
+        <li>
+          <div class="item-main">
+            <p class="item-title">IELTS Academic</p>
+            <p class="item-meta">British Council / IDP — March 2019</p>
+          </div>
+        </li>
+      </ul>
     </section>
 
     <!-- Education -->
     <section class="section">
       <h2>Education</h2>
       <div class="panel">
-        <h3 class="title">MSc in Management and Economics</h3>
-        <p class="meta">St. Petersburg State University — 2009</p>
+        <h3 class="item-title">MSc in Management and Economics</h3>
+        <p class="item-meta">St. Petersburg State University — 2009</p>
       </div>
     </section>
   </main>
