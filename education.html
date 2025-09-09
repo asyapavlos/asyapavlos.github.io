@@ -66,7 +66,6 @@
     .item-meta{margin:4px 0 0 0; color:var(--muted); font-size:14px}
     .links{display:flex; gap:12px; align-items:center}
 
-    /* Minimal chip (kept single-toned) */
     .chip{
       display:inline-block; padding:6px 10px; border-radius:12px;
       border:1px solid color-mix(in srgb, var(--brand) 35%, white 0%);
@@ -84,7 +83,6 @@
     <div class="wrap nav">
       <div class="brand">
         <div class="logo-photo">
-          <!-- Same photo as on the home page -->
           <img src="assets/projects/avatar.jpg" alt="Portrait of Anastasia Sergeeva">
         </div>
         <div class="brand-text">
@@ -114,6 +112,15 @@
           </div>
           <div class="links">
             <a class="chip" href="https://coursera.org/verify/specialization/FLRXQY5EX5CB" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </li>
+        <li>
+          <div class="item-main">
+            <p class="item-title">Google Data Analytics (Professional Certificate)</p>
+            <p class="item-meta">Google — 2021</p>
+          </div>
+          <div class="links">
+            <a class="chip" href="https://coursera.org/verify/professional-cert/9KFLADE6Q7J8" target="_blank" rel="noopener">View certificate</a>
           </div>
         </li>
         <li>
@@ -204,15 +211,6 @@
         </li>
         <li>
           <div class="item-main">
-            <p class="item-title">Google Data Analytics Professional Certificate</p>
-            <p class="item-meta">Google — 2021</p>
-          </div>
-          <div class="links">
-            <a class="chip" href="https://coursera.org/verify/professional-cert/9KFLADE6Q7J8" target="_blank" rel="noopener">View certificate</a>
-          </div>
-        </li>
-        <li>
-          <div class="item-main">
             <p class="item-title">R Programming</p>
             <p class="item-meta">Johns Hopkins University (Coursera) — October 3, 2020</p>
           </div>
@@ -242,7 +240,7 @@
       </ul>
     </section>
 
-    <!-- Education (same flat list style, no card) -->
+    <!-- Education -->
     <section class="section">
       <h2>Education</h2>
       <ul class="flat-list">
@@ -263,4 +261,3 @@
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
-
